@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload and Display</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #fafaed;
+        }
+
+        .container {
+            display: flex;
+            justify-content:center;
+            align-items:flex-start;
+            border-top: 30px solid #fafaed;
+            border-left: 100px solid #fafaed;
+            border-right: 100px solid #fafaed;
+            border-bottom: 60px solid #fafaed;
+            gap: 50px;
+            width: 100%; 
+            box-sizing: border-box; 
+        }
+
+        .leftbox, .rightbox {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        #imagePreviewContainer1, #imagePreviewContainer2 {
+            width: 320px;
+            height: 320px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color:#eaeaea;
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        #imagePreview {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #imagePreview img {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #fafaed;
+            color: #fff;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            /* padding: 20px; */
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo {
+            height: 150px;
+            width: 300px;
+            background-image: url(LOGO.jpg);
+            background-size: cover;
+            border-radius: 10px;
+            display: flex;
+            background-position: center;
+            justify-content: center;
+        }
+
+        .right, .left {
+            width: 90%;
+            padding: 0.75rem;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        .right{
+            padding-left: 80px; 
+        }
+        .left{
+            padding-left: 80px;
+        }
+        .upload-label {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 27px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 10px;
+        }
+        .arrow {
+            display: flex;
+            align-items: center;
+            font-size: 100px;
+            color: black;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body> 
+    <header><a href="temp2.html"></a><div class="logo"></div> </header>
+    <footer>
+        <div class="container">
+            <div class="leftbox">
+                <label for="imageUpload1" class="upload-label">Upload Your Sketch</label>
+                <input type="file" class="left" id="imageUpload1" accept="image/*" />
+                <div id="imagePreviewContainer1">
+                    <div id="imagePreview">
+                        <img id="previewImg1" src="" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="rightbox">
+                <label for="imageUpload2" class="upload-label">Your Final Product</label>
+                <input type="file" class="right" id="imageUpload2" accept="image/*" />
+                <div id="imagePreviewContainer2">
+                    <div id="imagePreview">
+                        <img id="previewImg2" src="" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('imageUpload1').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const previewImg = document.getElementById('previewImg1');
+                previewImg.src = e.target.result;
+                previewImg.style.display = 'block';
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.getElementById('imageUpload2').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const previewImg = document.getElementById('previewImg2');
+                previewImg.src = e.target.result;
+                previewImg.style.display = 'block';
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

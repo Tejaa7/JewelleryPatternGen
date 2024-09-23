@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Users/mukundareddy/Desktop/KMIT/styles.css">
+    <style>
+        .nav-link {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: black;
+            text-decoration: none;
+        }
+        .nav-link:hover {
+            color: #007bff;
+        }
+        .logo img {
+            height: 100px;
+            width: 270px;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            background-color: white;
+            padding: 5px 30px 5px 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav-container ul {
+            display: flex;
+            justify-content: space-between;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            flex-grow: 1;
+        }
+        .nav-item {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .nav-item a {
+            display: block;
+        }
+        .gallery * {
+            font-family: Nunito, sans-serif;
+        }
+        .gallery .responsive-container-block {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .gallery .text-blk.headingText {
+            font-size: 25px;
+            line-height: 34px;
+            font-weight: 700;
+            color: #d97a0b;
+            margin-bottom: 10px;
+        }
+
+        .gallery .cardContainer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            width: 100%;
+            max-width: 1320px;
+            margin-top: 100px;
+        }
+
+        .gallery .blockImg {
+            overflow: hidden;
+        }
+
+        .gallery .mainImg {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery .mainImg:hover {
+            transform: translateY(-10px);
+        }
+
+        @media (max-width: 768px) {
+            .gallery .mainImg {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .gallery .mainImg {
+                height: 200px;
+            }
+        }
+       /* header{
+            background-color: white;
+            width: 100%;
+            height: 100px;
+            padding-bottom: 50px;
+        }*/
+        .logo{
+            height: 100px;
+            width: auto;
+            background-size: cover;
+            border-radius: 10px;
+            display: flex;
+            background-position: center;
+            justify-content: center;
+        }
+        .logo img{
+          height: 100px;
+        }
+        .hero-section {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            margin-top: 110px; /* Ensure video starts below navbar */
+            background-color: #f9f9ea;
+            gap: 20px; /* Add space between video and text */
+        }
+
+        .hero-section video {
+            width: 50vw; /* Adjust video width */
+            height: 50vh; /* Adjust video height */
+            object-fit: cover;
+        }
+
+        .hero-section p {
+            font-size: 3rem; /* Increase font size */
+            text-align: center;
+            margin: 0; /* Remove margin for better alignment */
+            max-width: 50vw;
+            color: #333;
+        }
+        .Inline{
+            padding-left: 140px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-weight:550;
+            background-color: #f9f9ea;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <div class="logo" >
+            <a href="temp2.html"><img src="LOGO1.jpg" alt="Logo"></a>
+        </div>
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#trad">Traditional</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#upload">Upload</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Login">Login</a></li>
+        </ul>
+    </div>
+    
+    <section class="hero-section">
+        <video autoplay muted loop>
+            <source src="traditionalvideo.mov" type="video/mp4">
+        </video>
+        <p class=" Inline">
+            Traditional Jewellery
+        </p>
+    </section>
+    <!-- Add the rest of the content here -->
+     <!-- <nav class="navbar"><h1>Turning Traditional Sketches into Digital Works of Art</h1></nav> -->
+    <div class="gallery" unique-script-id="w-w-dm-id">
+      <div class="responsive-container-block bigContainer">
+        <div class="responsive-container-block Container">
+          <!-- <p class="text-blk headingText" id="w-c-s-fc_p-1-dm-id">
+            Famous Gallery
+          </p> -->
+          
+          <div class="responsive-container-block cardContainer">
+            <div class="blockImg">
+              <img class="mainImg image-block" src="IMG_6291.JPG">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="IMG_6292.JPG">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="IMG_6293.JPG">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="IMG_6294.JPG">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="IMG_6295.JPG">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="IMG_6297.JPG">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg image-block" src="IMG_6298.JPG">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft17.svg">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft19.svg">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft18.svg">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft9.svg">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft20.svg">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft16.svg">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft17.svg">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft19.svg">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft18.svg">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft9.svg">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft20.svg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>

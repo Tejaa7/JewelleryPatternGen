@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gallery * {
+            font-family: Nunito, sans-serif;
+        }
+
+        .gallery .text-blk{
+            line-height: 28px;
+            font-size: 20px;
+            font-weight: 400;
+            text-align: center;
+            color: #666666;
+            max-width: 1030px;
+            margin: 0 auto 30px;
+        }
+
+        .gallery .responsive-container-block {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .gallery .text-blk.headingText {
+            font-size: 25px;
+            line-height: 34px;
+            font-weight: 700;
+            color: #d97a0b;
+            margin-bottom: 10px;
+        }
+
+        .gallery .cardContainer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .gallery .blockImg {
+            overflow: hidden;
+        }
+
+        .gallery .mainImg {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery .mainImg:hover {
+            transform: translateY(-10px);
+        }
+
+        @media (max-width: 768px) {
+            .gallery .mainImg {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .gallery .mainImg {
+                height: 200px;
+            }
+        }
+        header{
+            background-color: white;
+            width: 100%;
+            height: 100px;
+            padding-bottom: 50px;
+        }
+        .logo{
+            height: 150px;
+            width: 350px
+            background-size: cover;
+            border-radius: 10px;
+            display: flex;
+            background-position: center;
+            justify-content: center;
+        }
+        .navbar{
+            font-family:'Times New Roman', Times, serif ;
+            display: flex;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        h1{
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header><div class="logo"><img src="CROPPEDLOGO.jpg" alt=""></div></header>
+    <nav class="navbar"><h1>Bridging the Gap</h1></nav>
+    <div class="gallery" unique-script-id="w-w-dm-id">
+        <div class="responsive-container-block bigContainer">
+          <div class="responsive-container-block Container">
+            <!-- <p class="text-blk headingText" id="w-c-s-fc_p-1-dm-id">
+              Famous Gallery
+            </p> -->
+            
+            <div class="responsive-container-block cardContainer">
+              <div class="blockImg">
+                <img class="mainImg image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft16.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft17.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft19.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft18.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft9.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft20.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft16.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft17.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft19.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft18.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft9.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft20.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft16.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft17.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft19.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft18.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft9.svg">
+              </div>
+              <div class="blockImg">
+                <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft20.svg">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

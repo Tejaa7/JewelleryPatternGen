@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Sketch to 3D Model Service</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Users/mukundareddy/Desktop/KMIT/styles.css">
+    <style>
+        /* Custom Styles */
+        .nav-link {
+            font-weight: bold;
+            font-size: 1.3rem; /* Slightly reduce font size */
+            color: black; /* Ensure good contrast */
+        }
+        .nav-link:hover {
+            color: #007bff; 
+        }
+        .logo img {
+            height: 100px;
+            width: 270px;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            background-color: white;
+            padding: 5px 15px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav-container ul {
+            display: flex;
+            justify-content: space-between;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            flex-grow: 1;
+        }
+        .nav-item {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .nav-item a {
+            display: block;
+        }
+
+        .user {
+            margin-left: 15px;
+        }
+        .user img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 78vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            margin-top: 110px;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .hero-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.9; 
+        }
+        .hero-content h2 {
+            font-size: 3rem;
+            color: black;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+    </style>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    text-align: center;
+}
+
+.grid-item {
+    display: inline-block;
+    width: 480px;
+    height: 900px;
+    margin: 10px;
+    vertical-align: top;
+    text-align: center;
+  
+    padding: 10px;
+    background-size: cover;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 600px;
+    transition: transform 0.3s ease;
+}
+
+.grid-item p {
+    margin-top: 10px;
+    font-size: 1.1rem; 
+    line-height: 1.6; 
+    font-weight: 400;
+    color: #333;
+    text-align: center; 
+    padding: 0 10px; 
+}
+
+
+.text-section {
+    padding: 3.4rem 0;
+    display:flex;
+    justify-content: center;
+    margin-left: 128px;
+    margin-right: 128px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.gridt{
+    font-size: 45px;
+    font-weight:500;
+}
+.master{
+    padding: 3.4rem 0;
+    margin-left: 128px;
+    margin-right: 128px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.masterh{
+    display: flex;
+    justify-content: center;
+    font-size: 45px;
+    font-weight:500;
+}
+p{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:900; 
+}
+h4{
+    padding: 20px;
+}
+.heading1, .heading2, .heading3{
+    font-size:30px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="LOGO1.jpg" alt="Logo">
+            </div>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="traditional.html">Traditional</a></li>
+                <li class="nav-item"><a class="nav-link" href="modern.html">Modern</a></li>
+                <li class="nav-item"><a class="nav-link" href="upload.html">Upload</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
+            <div class="user">
+                <a href="sgin.html">
+                    <!-- <img src="IMG_6286.JPG" alt="User Image"> -->
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="hero-section">
+        <video autoplay muted loop>
+            <!-- <source src="Swarovski vid.webm" type="video/mp4"> -->
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content text-center text-white">
+            <h2 class="display-4">From Imagination to Creation</h2>
+            <a href="upload.html" class="btn btn-light btn-lg mt-4">Upload Your Sketch</a>
+        </div>
+    </section>
+
+    <!-- <div class="master">
+        <h2 class="masterh">Craft Your Vision Into Elegance</h2>
+    </div> -->
+
+  
+    <div class="grid-container">
+
+        <div class="text-section">
+            <h2 class="gridt">How It Works</h2>
+        </div>
+
+    </div>
+        <div class="grid-item">
+            <a href="https://example.com/link1">
+                <img src="sketch.jpg" alt="Image 1">
+            </a>
+            <h4 class="heading1">Step 1: Upload Your Sketch</h4>
+            <p>Drag and drop your jewelry sketch or click to upload.</p>
+            <p>Ensure clarity and detail for the best results.</p>
+        </div>
+        <div class="grid-item">
+            <a href="https://example.com/link2">
+                <img src="approve.avif" alt="Image 2">
+            </a>
+            <h4 class="heading2">Step 2: Preview & Approve</h4>
+            <p>Review a 2D model preview of your design.</p>
+            <p>Approve it before we finalize the model.</p>
+        </div>
+        <div class="grid-item">
+            <a href="https://example.com/link3">
+                <img src="modern_j.avif" alt="Image 3">
+            </a>
+            <h4 class="heading3">Step 3: Receive Your 2D Model</h4>
+            <p>Download your final 2D model file once approved.</p>
+        </div>
+    </div>
+    <div class="text-section">
+        <h2 class="gridt">Craft Your Vision Into Elegance</h2>
+    </div>
+
+    <div class="grid-container">
+
+    </div>
+        <div class="grid-item">
+            <a href="https://example.com/link1">
+                <img src="easy.avif" alt="Image 1">
+            </a>
+            <h4 class="heading1">Easy Upload</h4>
+            <p>Upload your sketch in any format, and we'll take care of the rest</p>
+        </div>
+        <div class="grid-item">
+            <a href="https://example.com/link2">
+                <img src="comp.avif" alt="Image 2">
+            </a>
+            <h4 class="heading1">Competence You Can Trust</h4>
+            <p>Our model ensures that your design is accurately captured</p>
+        </div>
+        <div class="grid-item">
+            <a href="https://example.com/link3">
+                <img src="happiness.avif" alt="Image 3">
+            </a>
+            <h4 class="heading1">Happiness Guaranteed</h4>
+            <p>Review your design before validating it.</p>
+        </div>
+    </div>
+    <div class="grid-container">
+
+        <div class="text-section">
+            <h2 class="gridt">Products We Can Transform</h2>
+        </div>
+
+    </div>
+        <div class="grid-item">
+            <a href="https://example.com/link1">
+                <img src="classic.avif" alt="Image 1">
+            </a>
+            <h4 class="heading1">Classic Necklaces</h4>
+        </div>
+        <div class="grid-item">
+            <a href="https://example.com/link2">
+                <img src="crpmdn.jpg" alt="Image 2">
+            </a>
+            <h4 class="heading1">Modern Necklaces</h4>
+        </div>
+        <div class="grid-item">
+            <a href="https://example.com/link3">
+                <img src="earrings2.avif" alt="Image 3">
+            </a>
+            <h4 class="heading1">Earings</h4>
+        </div>
+    </div>
+<!-- 
+    <div class="text-section">
+        <h2>Additional Text Below the Grid</h2>
+        <p>This is where you can put some descriptive text or other content related to the grid above.</p>
+    </div>
+     -->
+
+    <!-- How It Works -->
+    <!-- <section id="how-it-works" class="bg-light py-5 text-center">
+        <div class="container">
+            <h3>How It Works</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Step 1: Upload Your Sketch</h4>
+                    <p>Drag and drop your jewelry sketch or click to upload. Ensure clarity and detail for the best results.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Step 2: Preview & Approve</h4>
+                    <p>Review a 2D model preview of your design. Approve it before we finalize the model.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Step 3: Receive Your 2D Model</h4>
+                    <p>Download your final 2D model file once approved.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Pricing -->
+</body>
+</html>
