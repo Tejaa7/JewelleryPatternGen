@@ -58,10 +58,10 @@
 
         .hero-section {
             position: relative;
-            height: 78vh;
+            height: 85vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content:center;
+            align-items:end;
             background-size: cover;
             margin-top: 110px;
         }
@@ -102,19 +102,21 @@
 .grid-item {
     display: inline-block;
     width: 480px;
-    height: 900px;
+    height: 700px;
     margin: 10px;
     vertical-align: top;
     text-align: center;
-  
+    box-shadow: black;
     padding: 10px;
+    margin-top: 50px;
     background-size: cover;
 }
 
 .grid-item img {
-    width: 100%;
-    height: 600px;
+    width: 367px;
+    height: 489px;
     transition: transform 0.3s ease;
+    /* border-radius: 8px; */
 }
 
 .grid-item p {
@@ -132,15 +134,16 @@
     padding: 3.4rem 0;
     display:flex;
     justify-content: center;
-    margin-left: 128px;
-    margin-right: 128px;
+    /* margin-left: 128px;
+    margin-right: 128px; */
     font-family: 'Times New Roman', Times, serif;
+    background-color: #f1ebe5;
 }
 .gridt{
     font-size: 45px;
     font-weight:500;
 }
-.master{
+/* .master{
     padding: 3.4rem 0;
     margin-left: 128px;
     margin-right: 128px;
@@ -151,17 +154,24 @@
     justify-content: center;
     font-size: 45px;
     font-weight:500;
-}
+} */
 p{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight:900; 
 }
 h4{
     padding: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .heading1, .heading2, .heading3{
     font-size:30px;
 }
+/* body{
+    background-color: #f1ebe5;
+} */
+ .height{
+    height: 670px;
+ }
     </style>
 </head>
 <body>
@@ -189,7 +199,7 @@ h4{
 
     <section class="hero-section">
         <video autoplay muted loop>
-            <!-- <source src="Swarovski vid.webm" type="video/mp4">  -->
+            <source src="Swarovski vid.webm" type="video/mp4"> 
             Your browser does not support the video tag.
         </video>
         <div class="hero-content text-center text-white">
@@ -241,28 +251,30 @@ h4{
     <div class="grid-container">
 
     </div>
+    <div class="height">
         <div class="grid-item">
             <a href="https://example.com/link1">
                 <img src="easy.avif" alt="Image 1">
             </a>
             <h4 class="heading1">Easy Upload</h4>
-            <p>Upload your sketch in any format, and we'll take care of the rest</p>
+            <!-- <p>Upload your sketch in any format, and we'll take care of the rest</p> -->
         </div>
         <div class="grid-item">
             <a href="https://example.com/link2">
                 <img src="comp.avif" alt="Image 2">
             </a>
             <h4 class="heading1">Competence You Can Trust</h4>
-            <p>Our model ensures that your design is accurately captured</p>
+            <!-- <p>Our model ensures that your design is accurately captured</p> -->
         </div>
         <div class="grid-item">
             <a href="https://example.com/link3">
                 <img src="happiness.avif" alt="Image 3">
             </a>
             <h4 class="heading1">Happiness Guaranteed</h4>
-            <p>Review your design before validating it.</p>
+            <!-- <p>Review your design before validating it.</p> -->
         </div>
     </div>
+</div>
     <div class="grid-container">
 
         <div class="text-section">
@@ -270,12 +282,7 @@ h4{
         </div>
 
     </div>
-        <div class="grid-item">
-            <a href="https://example.com/link1">
-                <img src="classic.avif" alt="Image 1">
-            </a>
-            <h4 class="heading1">Classic Necklaces</h4>
-        </div>
+    <div class="height">
         <div class="grid-item">
             <a href="https://example.com/link2">
                 <img src="crpmdn.jpg" alt="Image 2">
@@ -284,39 +291,17 @@ h4{
         </div>
         <div class="grid-item">
             <a href="https://example.com/link3">
-                <img src="earrings2.avif" alt="Image 3">
+                <img src="last3.jpg" alt="Image 3">
             </a>
             <h4 class="heading1">Earings</h4>
         </div>
-    </div>
-<!-- 
-    <div class="text-section">
-        <h2>Additional Text Below the Grid</h2>
-        <p>This is where you can put some descriptive text or other content related to the grid above.</p>
-    </div>
-     -->
-
-    <!-- How It Works -->
-    <!-- <section id="how-it-works" class="bg-light py-5 text-center">
-        <div class="container">
-            <h3>How It Works</h3>
-            <div class="row">
-                <div class="col-md-4">
-                    <h4>Step 1: Upload Your Sketch</h4>
-                    <p>Drag and drop your jewelry sketch or click to upload. Ensure clarity and detail for the best results.</p>
-                </div>
-                <div class="col-md-4">
-                    <h4>Step 2: Preview & Approve</h4>
-                    <p>Review a 2D model preview of your design. Approve it before we finalize the model.</p>
-                </div>
-                <div class="col-md-4">
-                    <h4>Step 3: Receive Your 2D Model</h4>
-                    <p>Download your final 2D model file once approved.</p>
-                </div>
-            </div>
+        <div class="grid-item">
+            <a href="https://example.com/link1">
+                <img src="classicj.jpg" alt="Image 1">
+            </a>
+            <h4 class="heading1">Classic Necklaces</h4>
         </div>
-    </section> -->
-
-    <!-- Pricing -->
+    </div>
+</div>
 </body>
 </html>
