@@ -117,7 +117,7 @@
           height: 600px;
           width: 400px;
           border: 2px solid black;
-          background-image: url(signupcover.jpg);
+          /* background-image: url(signupcover.jpg); */
           background-size: cover;
           border-radius: 10px;
           background-position: center;
@@ -126,7 +126,7 @@
       .logo {
             height: 70px;
             width: 300px;
-            background-image: url(LOGO.jpg);
+            /* background-image: url(LOGO.jpg); */
             background-size: cover;
             border-radius: 10px;
             display: flex;
@@ -146,13 +146,14 @@
 
 <body>
   <div class="background">
-    <div class="image-container"></div>
+    <div class="image-container"><img src="/images/signupcover.jpg"></div>
     <div class="login-container">
 
-        <a href="Home.html"><div class="logo">
+        <a href="/Home"><div class="logo"><img src="/images/LOGO1.jpg" alt="Logo">
         </div></a>
         <form>
             <div class="form-group">
+                
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required placeholder="Enter your username">
             </div>
@@ -173,7 +174,7 @@
             <div id="option">OR</div>
         </form>
         <div class="login-back">
-            <p>Already have an account?<a href="login.html"> Login Here</a></p>
+            <p>Already have an account?<a href="/login"> Login Here</a></p>
         </div>
     </div>
   </div>

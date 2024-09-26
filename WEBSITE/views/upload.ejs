@@ -76,7 +76,7 @@
         .container {
             display: flex;
             justify-content:center;
-            align-items:flex-start;
+            align-items:baseline;
             border-top: 30px solid #f1ebe5;
             border-left: 100px solid #f1ebe5;
             border-right: 100px solid #f1ebe5;
@@ -121,7 +121,7 @@
         }
 
         footer {
-            background-color: #f1ebe5
+            background-color: #f1ebe5;
             color: #fff;
             width: 100%;
             position: fixed;
@@ -181,23 +181,60 @@
             color: black;
             justify-content: center;
         }
+        .hero-section {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            margin-top: 110px; 
+            background-color: #f1ebe5;
+            gap: 20px; 
+        }
+
+        .hero-section video {
+            width: 50vw;
+            height: 60vh; 
+            object-fit: cover;
+        }
+
+        .hero-section p {
+            font-size: 3rem; 
+            text-align: center;
+            margin: 0;
+            max-width: 50vw;
+            color: #333;
+        }
+        .Inline{
+            padding-left: 140px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-weight:550;
+            background-color: #f1ebe5;
+        }
+
     </style>
 </head>
 <body> 
     <div class="nav-container">
         <div class="logo" >
-            <a href="Home.html"><img src="LOGO1.jpg" alt="Logo"></a>
+            <a href="/Home"><img src="/images/LOGO1.jpg" alt="Logo"></a>
         </div>
         <ul class="nav">
-            <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="traditional.html">Traditional</a></li>
-            <li class="nav-item"><a class="nav-link" href="modern.html">Modern</a></li>
-            <li class="nav-item"><a class="nav-link" href="upload.html">Upload</a></li>
-            <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="/Home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/traditional">Traditional</a></li>
+            <li class="nav-item"><a class="nav-link" href="/modern">Modern</a></li>
+            <li class="nav-item"><a class="nav-link" href="/upload">Upload</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contactus">Contact Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
         </ul>
     </div>
-    <header><a href="temp2.html"></a><div class="logo"></div> </header>
+    <section class="hero-section">
+        <video autoplay muted loop>
+            <source src="/images/traditionalvideo.mov" type="video/mp4">
+        </video>
+        <p class=" Inline">
+            Traditional Jewellery
+        </p>
+    </section>
+    <header><a href="/Home"></a><div class="logo"></div> </header>
     <footer>
         <div class="container">
             <div class="leftbox">
