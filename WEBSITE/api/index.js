@@ -13,6 +13,31 @@ app.get('/Home',(req,res)=>{
 app.get('/login',(req,res)=>{
     res.render('login.ejs')
 })
+app.post('/signup',(req,res)=>{
+    var username=req.body.username;
+    var email=req.body.email;
+    var password=req.body.password;
+    var final_pass=req.body.repassword;
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(password!==final_pass){
+        res.send('<script>alert("Passwords do not match, please try again."); window.history.back();</script>');
+    }
+    else if(!emailRegex.test(email)) {
+        res.send('<script>alert("Invalid email address. Please enter a valid email."); window.history.back();</script>');
+    }
+    else{
+        UserModel.create({
+            Username:username,
+            Email:email,
+            Password:password
+        }).then(
+            res.send('<script>alert("Successfully signed up! Redirecting to login..."); window.location.href="/login";</script>')
+        )
+        .catch(err=>{
+            console.log(err)
+        })
+    }
+})
 app.get('/signup',(req,res)=>{
     res.render('signup.ejs')
 })
