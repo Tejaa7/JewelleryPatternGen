@@ -61,7 +61,7 @@
             height: 85vh;
             display: flex;
             justify-content:center;
-            align-items:center;
+            align-items:end;
             background-size: cover;
             margin-top: 110px;
         }
@@ -124,8 +124,8 @@
     font-size: 1.1rem; 
     line-height: 1.6; 
     font-weight: 400;
-    color: #333;
-    text-align: center; 
+    color: black;
+    text-align:center; 
     padding: 0 10px; 
 }
 
@@ -139,40 +139,43 @@
     font-family: 'Times New Roman', Times, serif;
     background-color: #f1ebe5;
     font-weight: bolder;
+    color: black;
+    
 }
 .gridt{
-    font-size: 45px;
-    font-weight:500;
+    font-size: 50px;
+    font-weight:bold;
 }
-/* .master{
-    padding: 3.4rem 0;
-    margin-left: 128px;
-    margin-right: 128px;
-    font-family: 'Times New Roman', Times, serif;
-}
-.masterh{
-    display: flex;
-    justify-content: center;
-    font-size: 45px;
-    font-weight:500;
-} */
 p{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight:900; 
+    font-weight:900;
+    font-size: 50px; 
 }
 h4{
-    padding: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 30px 30px 15px 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .heading1, .heading2, .heading3{
-    font-size:30px;
+    font-size:25px;
+    font-weight: 400;
+    color: black;
 }
-/* body{
-    background-color: #f1ebe5;
-} */
  .height{
     height: 670px;
  }
+ .hidden-on-scroll1, .hidden-on-scroll2, .hidden-on-scroll3 {
+  opacity: 0; /* Hidden initially */
+  transform: translateY(20px); /* Move slightly off-screen */
+  transition: opacity 1s ease, transform 1s ease; /* Smooth animation */
+}
+
+.hidden-on-scroll1.show ,.hidden-on-scroll2.show,.hidden-on-scroll3.show{
+  opacity: 1; /* Visible */
+  transform: translateY(0); /* Back to original position */
+}
+.para{
+    color: black;
+}
     </style>
 </head>
 <body>
@@ -209,11 +212,7 @@ h4{
         </div>
     </section>
 
-    <!-- <div class="master">
-        <h2 class="masterh">Craft Your Vision Into Elegance</h2>
-    </div> -->
-
-  
+    <div class="hidden-on-scroll1">
     <div class="grid-container">
 
         <div class="text-section">
@@ -226,25 +225,27 @@ h4{
                 <img src="/images/sketch.jpg" alt="Image 1">
             </a>
             <h4 class="heading1">Step 1: Upload Your Sketch</h4>
-            <p>Drag and drop your jewelry sketch or click to upload.</p>
-            <p>Ensure clarity and detail for the best results.</p>
+            <p class="para">Upload your jewelry sketch first, and</p>
+            <p class="para">Ensure clarity and detail for the best results.</p>
         </div>
         <div class="grid-item">
             <a href="https://example.com/link2">
                 <img src="/images/approve.avif" alt="Image 2">
             </a>
             <h4 class="heading2">Step 2: Preview & Approve</h4>
-            <p>Review a 2D model preview of your design.</p>
-            <p>Approve it before we finalize the model.</p>
+            <p class="para">Review a 2D model preview of your design,</p>
+            <p class="para">Approve it before we finalize the model.</p>
         </div>
         <div class="grid-item">
             <a href="https://example.com/link3">
                 <img src="/images/modern_j.avif" alt="Image 3">
             </a>
             <h4 class="heading3">Step 3: Receive Your 2D Model</h4>
-            <p>Download your final 2D model file once approved.</p>
+            <p class="para">Download your final 2D model file once approved.</p>
         </div>
     </div>
+    </div>
+    <div class="hidden-on-scroll2">
     <div class="text-section">
         <h2 class="gridt">Craft Your Vision Into Elegance</h2>
     </div>
@@ -276,6 +277,8 @@ h4{
         </div>
     </div>
 </div>
+</div>
+    <div class="hidden-on-scroll3">
     <div class="grid-container">
 
         <div class="text-section">
@@ -304,5 +307,30 @@ h4{
         </div>
     </div>
 </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const elements = document.querySelectorAll('.hidden-on-scroll1, .hidden-on-scroll2,  .hidden-on-scroll3');
+      const observerOptions = {
+        threshold: 0.1 // Element is visible when 10% of it is in view
+      };
+  
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add a delay
+            setTimeout(() => {
+              entry.target.classList.add('show');
+            }, 500); // 2000ms = 2 seconds
+          }
+        });
+      }, observerOptions);
+  
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+  
 </body>
 </html>

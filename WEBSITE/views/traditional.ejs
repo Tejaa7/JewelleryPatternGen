@@ -128,8 +128,8 @@
         }
 
         .hero-section video {
-            width: 50vw;
-            height: 60vh; 
+            width: 60vw;
+            height: 72vh; 
             object-fit: cover;
         }
 
@@ -146,7 +146,16 @@
             font-weight:550;
             background-color: #f1ebe5;
         }
+        .hidden-on-scroll{
+  opacity: 0; 
+  transform: translateY(20px); 
+  transition: opacity 1s ease, transform 1s ease; 
+}
 
+.hidden-on-scroll{
+  opacity: 1; 
+  transform: translateY(0); 
+}
     </style>
 </head>
 <body>
@@ -173,6 +182,7 @@
         </p>
     </section>
     
+    <div class="hidden-on-scroll">
      <!-- <nav class="navbar"><h1>Turning Traditional Sketches into Digital Works of Art</h1></nav> -->
     <div class="gallery" unique-script-id="w-w-dm-id">
       <div class="responsive-container-block bigContainer">
@@ -182,6 +192,30 @@
           </p> -->
           
           <div class="responsive-container-block cardContainer">
+            <div class="blockImg">
+              <img class="mainImg" src="/images/001_003.png">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="/images/001_007.png">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="/images/001_010.png">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="/images/001_011.png">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="/images/002_012.png">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg image-block" src="/images/002_009.png">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="/images/001_018.png">
+            </div>
+            <div class="blockImg">
+              <img class="mainImg" src="/images/001_013.png">
+            </div>
             <div class="blockImg">
               <img class="mainImg image-block" src="/images/IMG_6291.JPG">
             </div>
@@ -204,42 +238,41 @@
               <img class="mainImg image-block" src="/images/IMG_6298.JPG">
             </div>
             <div class="blockImg">
-              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft17.svg">
+              <img class="mainImg" src="">
             </div>
             <div class="blockImg">
-              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft19.svg">
+              <img class="mainImg" src="">
             </div>
             <div class="blockImg">
-              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft18.svg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft9.svg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft20.svg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft16.svg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft17.svg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft19.svg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft18.svg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft9.svg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft20.svg">
+              <img class="mainImg" src="">
             </div>
           </div>
         </div>
       </div>
     </div>
-
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const elements = document.querySelectorAll('.hidden-on-scroll');
+      const observerOptions = {
+        threshold: 0.1 // Element is visible when 10% of it is in view
+      };
+  
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add a delay
+            setTimeout(() => {
+              entry.target.classList.add('show');
+            }, 500); // 2000ms = 2 seconds
+          }
+        });
+      }, observerOptions);
+  
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
 </body>
 </html>
