@@ -8,6 +8,11 @@ const bcrypt = require('bcrypt');
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.set('views', path.join(__dirname, '..', 'views'));
 app.use(express.urlencoded({ extended: true }));
+var islogged=(req)=>{
+    const loggedIn = req.session.userid ? true : false;
+    return loggedIn
+    //had to pass request param to the function to acces the session id
+}
 app.use(session({
     secret: 'EIUQVYvGzB',
     resave: false,
@@ -16,9 +21,7 @@ app.use(session({
 }));
 app.set('view engine', 'ejs');  
 app.get('/Home', (req, res) => {
-    const loggedIn = req.session.userid ? true : false;  
-    console.log(req.session.userid)
-    console.log(loggedIn);
+    const loggedIn = islogged(req);
     res.render('Home.ejs', { loggedin: loggedIn });
 });
 
@@ -79,16 +82,21 @@ app.get('/signup',(req,res)=>{
     res.render('signup.ejs')
 })
 app.get('/modern',(req,res)=>{
-    res.render('modern.ejs')
+    const loggedIn = islogged(req);
+    res.render('modern.ejs', { loggedin: loggedIn });
 })
+
 app.get('/traditional',(req,res)=>{
-    res.render('traditional.ejs')
+    const loggedIn = islogged(req);
+    res.render('traditional.ejs', { loggedin: loggedIn });
 })
 app.get('/upload',(req,res)=>{
-    res.render('upload.ejs')
+    const loggedIn = islogged(req);
+    res.render('upload.ejs', { loggedin: loggedIn });
 })
 app.get('/contactus',(req,res)=>{
-    res.render('contactus.ejs')
+    const loggedIn = islogged(req);
+    res.render('contactus.ejs', { loggedin: loggedIn });
 })
 app.listen(3000,()=>{
     console.log("Server is running port 3000")
