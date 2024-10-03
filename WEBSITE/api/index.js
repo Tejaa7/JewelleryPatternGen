@@ -2,6 +2,7 @@ const express = require('express');
 const app=express();
 const session=require('express-session');
 const UserModel=require('./Schema.js');
+const nodemailer = require('nodemailer');
 const path = require('path');
 const bcrypt = require('bcrypt');
 app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -23,7 +24,7 @@ app.get('/Home', (req, res) => {
 
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
-    const user = await UserModel.findOne({ Email: username });
+    const user = await UserModel.findOne({ Username: username });
     if (user && await bcrypt.compare(password, user.Password)) {
         req.session.username=user.Email;
         req.session.userid=user._id;
