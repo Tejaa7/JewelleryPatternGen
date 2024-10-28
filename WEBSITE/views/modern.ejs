@@ -10,28 +10,12 @@
         .gallery * {
             font-family: Nunito, sans-serif;
         }
-        .gallery .responsive-container-block {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 50px;
-        }
-
-        .gallery .text-blk.headingText {
-            font-size: 25px;
-            line-height: 34px;
-            font-weight: 700;
-            color: #d97a0b;
-            margin-bottom: 10px;
-        }
 
         .gallery .cardContainer {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 50px;
-            width: 100%;
-            max-width: 1320px;
-            margin-top: 100px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+            gap: 30px;
+            margin-top: 50px;
         }
 
         .gallery .blockImg {
@@ -48,63 +32,6 @@
         .gallery .mainImg:hover {
             transform: translateY(-10px);
         }
-
-        @media (max-width: 768px) {
-            .gallery .mainImg {
-                height: 250px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .gallery .mainImg {
-                height: 200px;
-            }
-        }
-
-        .hero-section {
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            margin-top: 110px; 
-            background-color: #f1ebe5;
-            gap: 20px;
-        }
-
-        .hero-section video {
-            width: 60vw;
-            height: 72vh;
-            object-fit: cover;
-        }
-
-        .hero-section p {
-            font-size: 3rem; 
-            text-align: center;
-            margin: 0; 
-            max-width: 50vw;
-            color: #333;
-        }
-        .Inline{
-            padding-left: 140px;
-            font-family:Georgia, 'Times New Roman', Times, serif;
-            font-weight:550;
-            background-color: #f1ebe5;
-        }
-        .Inline2{
-            padding-left: 140px;
-            font-family:Georgia, 'Times New Roman', Times, serif;
-            font-weight:550;
-            background-color: #f1ebe5;
-        }
-        .hidden-on-scroll{
-  opacity: 0; 
-  transform: translateY(20px); 
-  transition: opacity 1s ease, transform 1s ease; 
-}
-
-.hidden-on-scroll{
-  opacity: 1; 
-  transform: translateY(0); 
-}
 .nav-justify1{
     display: flex;
     justify-content: space-evenly;
@@ -122,8 +49,46 @@
 .navbar-nav .nav-link:hover {
     color: #007bff !important; 
 }
-
     </style>
+        <!-- USE BUTTON STYLING -->
+        <style>
+          .blockImg {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px; 
+    }
+    
+    .use-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      border: none;
+      background-color: white;
+      color: black;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight:500;
+    }
+    .use-button:hover {
+  background-color: #7b7b7b;
+  color: white;
+}
+
+        </style>
+            </style>
+            <!-- HIDDEN ON SCROLL CSS -->
+             <style>
+            .hidden { 
+              opacity: 0; 
+              transform: translateY(20px);
+              transition: opacity 0.5s ease, transform 0.5s ease;
+              transition-delay: 0.7s;
+            }
+            .visible {
+              opacity: 1;
+              transform: translateY(0);
+            }
+             </style>
 </head>
 <body>
   <header>
@@ -166,110 +131,119 @@
         </div>
     </nav>
 </header>
- 
-    
-    <section class="hero-section">
-        <video autoplay muted loop>
-            <source src="/images/modernvideo.mp4" type="video/mp4">
-        </video>
-        <p class=" Inline">
-            Modern Jewellery
-        </p>
-    </section>
-    
-    <div class="hidden-on-scroll">
-     <!-- <nav class="navbar"><h1>Turning Traditional Sketches into Digital Works of Art</h1></nav> -->
-    <div class="gallery" unique-script-id="w-w-dm-id">
-      <div class="responsive-container-block bigContainer">
-        <div class="responsive-container-block Container">
-          <!-- <p class="text-blk headingText" id="w-c-s-fc_p-1-dm-id">
-            Famous Gallery
-          </p> -->
-          
-          <div class="responsive-container-block cardContainer">
-            <div class="blockImg">
-              <img class="mainImg image-block" src="/images/IMG_6305 2.jpg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="/images/IMG_6300 2.jpg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="/images/IMG_6301 2.jpg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="/images/IMG_6303 2.jpg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="/images/IMG_6304 2.jpg">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="/images/001_020.png">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg image-block" src="/images/002_004.png">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="/images/002_008.png">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="/images/002_014.png">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="/images/002_016.png">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="/images/002_017.png">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="/images/002_021.png">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg image-block" src="/images/002_023.png">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="/images/002_025.png">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="">
-            </div>
-            <div class="blockImg">
-              <img class="mainImg" src="">
-            </div>
+
+<section class="problem-solution-section" style="border: none; margin: 0; padding: 0;padding-bottom: 50px;">
+  <div class="fluid-container" style="border: none; margin: 0; padding: 0;background-color: #f1ebe5;">
+      <div class="row d-flex align-items-center" style="margin: 0;">
+          <div class="col-lg-8 d-flex justify-content-center" style="border: none; margin: 0; padding: 0;">
+              <!-- Video Placeholder (65% width) -->
+              <video class="img-fluid" autoplay muted loop style="max-height: 100%; width: 100%; object-fit: cover; border: none; margin: 0; padding: 0;height: 640px;">
+                  <source src="/images/modernvideo.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+          <div class="col-lg-4" style="font-family: Georgia, 'Times New Roman', Times, serif;text-align: right;">
+              <!-- Text Section (35% width) -->
+              <h2 style="font-weight: bolder;font-size:40px;">Modern Gallery</h2>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<div class="hidden-on-scroll mt-5 hidden">
+  <div class="container gallery">
+    <div class="cardContainer">
+          <div class="blockImg">
+            <img class="mainImg image-block" src="/images/IMG_6305 2.jpg">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="/images/IMG_6300 2.jpg">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="/images/IMG_6301 2.jpg">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="/images/IMG_6303 2.jpg">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="/images/IMG_6304 2.jpg">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="/images/001_020.png">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg image-block" src="/images/002_004.png">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="/images/002_008.png">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="/images/002_014.png">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="/images/002_016.png">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="/images/002_017.png">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="/images/002_021.png">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg image-block" src="/images/002_023.png">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="/images/002_025.png">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="">
+            <button class="use-button w-100 mt-2">USE</button>
+          </div>
+          <div class="blockImg">
+            <img class="mainImg" src="">
+            <button class="use-button w-100 mt-2">USE</button>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
+    <!-- JS FOR HIDDEN ON SCROLL -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const elements = document.querySelectorAll('.hidden-on-scroll');
-      const observerOptions = {
-        threshold: 0.1 // Element is visible when 10% of it is in view
-      };
-  
-      const observer = new IntersectionObserver(function(entries) {
+    document.addEventListener("DOMContentLoaded", function() {
+      const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // Add a delay
-            setTimeout(() => {
-              entry.target.classList.add('show');
-            }, 500); // 2000ms = 2 seconds
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); 
           }
         });
-      }, observerOptions);
-  
-      elements.forEach(element => {
-        observer.observe(element);
       });
+
+      const target = document.querySelector(".hidden-on-scroll");
+      observer.observe(target);
     });
   </script>
-  
 </body>
 </html>
