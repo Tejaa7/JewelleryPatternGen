@@ -1,0 +1,8 @@
+/* src/styles/variables.css */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #f1ebe5;
+    --font-family-primary: 'Nunito', sans-serif;
+    --font-family-secondary: Georgia, 'Times New Roman', Times, serif;
+    --text-color: black;
+}
