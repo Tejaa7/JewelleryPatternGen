@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
-    const [loggedin, setLoggedin] = useState(false); // Manage login state here
+    const [loggedin, setLoggedin] = useState(false); 
 
     return (
         <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow">

@@ -2,7 +2,6 @@
 import React from "react";
 import "./Gallery.css";
 
-
 const images = [
     "/assets/modernimages/001_003.png",
     "/assets/images/IMG_6300.jpg",

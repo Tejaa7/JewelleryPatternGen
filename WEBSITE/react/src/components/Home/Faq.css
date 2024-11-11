@@ -1,0 +1,28 @@
+.faq-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.faq-section {
+    background-color: #000; /* Set FAQ section background to black */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.accordion-button {
+    background-color: #333; /* Dark background for accordion headers */
+    color: white; /* White text color */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #444; /* Slightly lighter background when open */
+}
+
+.accordion-body {
+    background-color: #222; /* Dark background for accordion content */
+    color: #f8f9fa; 
+}
+
+.accordion-button:focus {
+    box-shadow: none; 
+}

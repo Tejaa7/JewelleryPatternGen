@@ -1,4 +1,3 @@
-// src/pages/ModernPage/ModernPage.jsx
 import React from "react";
 import Gallery from "../../components/Gallery";
 import VideoSection from "../../components/Videosection"
@@ -6,16 +5,16 @@ import Navbar from "../../components/Navbar"
 
 
 
-const ModernPage = () => {
+export const Traditional = () => {
     return (
-        <section className="modern-page">
+        <section className="traditional-page">
             <Navbar />
-            <VideoSection 
-                videoSrc="videos/modernvideo.mp4"
-                heading="Modern Gallery"/>
+            <VideoSection
+                 videoSrc="/videos/traditionalvideo.mov"
+                 heading="Traditional Gallery"/>
             <Gallery />
         </section>
     );
 };
 
-export default ModernPage;
+export default Traditional;
