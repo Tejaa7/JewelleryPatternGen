@@ -2,9 +2,12 @@ const express = require('express');
 const app=express();
 const session=require('express-session');
 const UserModel=require('./Schema.js');
-const nodemailer = require('nodemailer'); 
+// const nodemailer = require('nodemailer'); 
 const path = require('path');
 const jwt  = require('jsonwebtoken');
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+const SECRET_TOKEN_JWT="agjigbxbbjkbmAD"
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.set('views', path.join(__dirname, '..', 'views'));
 app.use(express.urlencoded({ extended: true }));
@@ -49,7 +52,8 @@ app.post('/login', async (req, res) => {
             });
         console.log(token);
         res.cookie("jwt",token,{
-            expires: new Date(Date.now() + 3 * 60 * 60 * 1000)
+            expires: new Date(Date.now() + 3 * 60 * 60 * 1000),
+            httpOnly:true
         })
         // console.log(req.session.userid)
 
@@ -112,7 +116,9 @@ app.get('/traditional',(req,res)=>{
     res.render('traditional.ejs', { loggedin: loggedIn });
     console.log(req.session.userid)
 })
+//protected endpoint
 app.get('/upload',(req,res)=>{
+    console.log(req.cookie)
     const loggedIn = islogged(req);
     res.render('upload.ejs', { loggedin: loggedIn });
 })
