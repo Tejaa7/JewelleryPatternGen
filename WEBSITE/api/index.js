@@ -2,9 +2,11 @@ const express = require('express');
 const app=express();
 const session=require('express-session');
 const UserModel=require('./Schema.js');
-const nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer'); 
 const path = require('path');
+const SECRET_TOKEN_JWT= "jdjujdskgiogshobnsfkmfpovpkcnxgjubx"
 const bcrypt = require('bcrypt');
+const jwt  = require('jsonwebtoken');
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.set('views', path.join(__dirname, '..', 'views'));
 app.use(express.urlencoded({ extended: true }));
@@ -16,8 +18,12 @@ var islogged=(req)=>{
 app.use(session({
     secret: 'EIUQVYvGzB',
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }  
+    saveUninitialized: false,
+    cookie: { 
+        secure: false,
+        expires: new Date(Date.now() + 3 * 60 * 60 * 1000)
+    }
+
 }));
 app.set('view engine', 'ejs');  
 app.get('/Home', (req, res) => {
@@ -31,11 +37,20 @@ app.post('/login', async (req, res) => {
     if (user && await bcrypt.compare(password, user.Password)) {
         req.session.username=user.Email;
         req.session.userid=user._id;
+        var token = jwt.sign({username:user.Username,
+            email:user.Email},SECRET_TOKEN_JWT,{
+                expiresIn: '3h'
+            });
+        console.log(token);
+        res.cookie("jwt",token,{
+            expires: new Date(Date.now() + 3 * 60 * 60 * 1000)
+        })
         // console.log(req.session.userid)
 
         return res.redirect('/Home');
     }
     res.send('<script>alert("Invalid credentials"); window.history.back();</script>');
+    
 })
 app.get('/login',(req,res)=>{
     res.render('login.ejs');
@@ -89,6 +104,7 @@ app.get('/modern',(req,res)=>{
 app.get('/traditional',(req,res)=>{
     const loggedIn = islogged(req);
     res.render('traditional.ejs', { loggedin: loggedIn });
+    console.log(req.session.userid)
 })
 app.get('/upload',(req,res)=>{
     const loggedIn = islogged(req);
