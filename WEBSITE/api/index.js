@@ -4,8 +4,6 @@ const session=require('express-session');
 const UserModel=require('./Schema.js');
 const nodemailer = require('nodemailer'); 
 const path = require('path');
-const SECRET_TOKEN_JWT= "jdjujdskgiogshobnsfkmfpovpkcnxgjubx"
-const bcrypt = require('bcrypt');
 const jwt  = require('jsonwebtoken');
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.set('views', path.join(__dirname, '..', 'views'));
@@ -25,6 +23,14 @@ app.use(session({
     }
 
 }));
+
+
+app.get('/',(req,res)=>{
+    res.redirect("/Home")
+})
+
+
+
 app.set('view engine', 'ejs');  
 app.get('/Home', (req, res) => {
     const loggedIn = islogged(req);
@@ -37,7 +43,7 @@ app.post('/login', async (req, res) => {
     if (user && await bcrypt.compare(password, user.Password)) {
         req.session.username=user.Email;
         req.session.userid=user._id;
-        var token = jwt.sign({username:user.Username,
+        var token = jwt.sign({username:username,
             email:user.Email},SECRET_TOKEN_JWT,{
                 expiresIn: '3h'
             });
