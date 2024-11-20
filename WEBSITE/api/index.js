@@ -5,6 +5,7 @@ const UserModel=require('./Schema.js');
 // const nodemailer = require('nodemailer'); 
 const path = require('path');
 const jwt  = require('jsonwebtoken');
+const bcrypt = require('bcrypt')
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 const SECRET_TOKEN_JWT="agjigbxbbjkbmAD"
@@ -21,8 +22,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: { 
-        secure: false,
-        expires: new Date(Date.now() + 3 * 60 * 60 * 1000)
+        secure: false
     }
 
 }));
@@ -52,7 +52,6 @@ app.post('/login', async (req, res) => {
             });
         console.log(token);
         res.cookie("jwt",token,{
-            expires: new Date(Date.now() + 3 * 60 * 60 * 1000),
             httpOnly:true
         })
         // console.log(req.session.userid)
@@ -71,6 +70,7 @@ app.get('/logout', (req, res) => {
             console.error("Failed to destroy session:", err);
             return res.status(500).send("Error logging out. Please try again.");
         }
+        res.clearCookie('jwt');
         res.redirect('/Home'); 
     });
 });
@@ -82,7 +82,7 @@ app.post('/signup', async(req,res)=>{
     var final_pass=req.body.repassword;
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(password!==final_pass){
-        res.send('<script>alert("Passwords do not match, please try again."); window.history.back();</script>');
+        res.send('<script>alert("Passwords do not match, please try again."); </script>');
     }
     else if(!emailRegex.test(email)){
         res.send('<script>alert("Invalid email address. Please enter a valid email."); window.history.back();</script>');
@@ -118,7 +118,7 @@ app.get('/traditional',(req,res)=>{
 })
 //protected endpoint
 app.get('/upload',(req,res)=>{
-    console.log(req.cookie)
+
     const loggedIn = islogged(req);
     res.render('upload.ejs', { loggedin: loggedIn });
 })
