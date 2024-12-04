@@ -14,7 +14,7 @@ const FAQSection = () => {
     ];
 
     return (
-        <footer className="bg-black text-white">
+        <footer className="bg-dark text-white">
         <section className="faq-section py-5">
             <div className="container">
                 <h2 className="text-center mb-5 text-white">Frequently Asked Questions</h2>

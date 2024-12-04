@@ -1,0 +1,129 @@
+/* Global body and html styling */
+.login-page :where(body), .login-page :where(html) {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  font-family: 'Montserrat', Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Background styling */
+.background {
+  background-color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Login container */
+.login-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Logo styling */
+.logo {
+  height: 70px;
+  width: 300px;
+  background-size: cover;
+  border-radius: 10px;
+  background-position: center;
+  margin: 50px auto;
+}
+
+/* Form group and input styling */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 400;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* Submit button styling */
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 400;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Option divider styling */
+#option {
+  text-align: center;
+  margin: 10px 0;
+  position: relative;
+}
+
+#option::before,
+#option::after {
+  position: absolute;
+  content: '';
+  height: 2px;
+  background: #b6b6b6;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50px;
+}
+
+#option::before {
+  width: 40%;
+  left: 0;
+}
+
+#option::after {
+  width: 40%;
+  right: 0;
+}
+
+/* Login-back section */
+.login-back {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Image container styling */
+.image {
+  height: 500px;
+  width: 400px;
+  background-size: cover;
+  border-radius: 10px;
+  margin-right: 200px;
+}
+
+.img-fluiddd {
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+}
+
+.imgc {
+  padding: 7rem;
+  padding-right: 130px;
+}

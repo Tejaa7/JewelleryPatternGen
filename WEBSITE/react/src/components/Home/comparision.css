@@ -1,0 +1,39 @@
+.mainWrapper-fluid {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentWrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.sliderWrapper {
+  width: 100%;
+  max-width: 700px; /* Restrict the maximum width */
+  height: auto; /* Ensure the height scales proportionally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #ccc; /* Optional: border for styling */
+  border-radius: 8px; /* Optional: rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: shadow for styling */
+}
+
+.react-compare-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto; /* Ensure it adjusts based on content */
+  height: auto; /* Scale proportionally */
+  max-width: 100%; /* Fit inside the parent container */
+  max-height: 100%; /* Ensure height doesn't exceed parent */
+}
+

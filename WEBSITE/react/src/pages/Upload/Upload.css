@@ -1,5 +1,11 @@
+.upload-page{
+  margin-top: 116px;
+  overflow: hidden;
+}
+
 body {
     background-color: #f8f9fa;
+    /* overflow: scroll; */
   }
   
   .upload-box, .output-box {

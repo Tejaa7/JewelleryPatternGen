@@ -1,0 +1,39 @@
+/* src/styles/main.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@500&display=swap');
+
+
+body {
+    font-family: var(--font-family-primary);
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+/* Navbar styles */
+.navbar-nav .nav-link {
+    transition: color 0.3s ease;
+}
+.nav-justify1{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.nav-justify2{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+@font-face {
+    font-family: 'Cormorant SC';
+    src: url('./assets/fonts/CormorantSC-Regular.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  .brand-header{
+    font-family: "Cormorant-SC",serif;
+  }
+  

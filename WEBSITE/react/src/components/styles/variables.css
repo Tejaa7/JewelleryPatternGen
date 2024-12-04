@@ -1,0 +1,15 @@
+/* src/styles/variables.css */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@500&display=swap');
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #f1ebe5;
+    --font-family-primary: 'Nunito', sans-serif;
+    --font-family-secondary: Georgia, 'Times New Roman', Times, serif;
+    --text-color: black;
+    
+}
+
+.brand-header{
+    font-family: 'Cormorant-SC',serif;
+}

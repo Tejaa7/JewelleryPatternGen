@@ -1,0 +1,45 @@
+footer {
+    background-color: #000;
+  }
+  .footer{
+    background-color: #000;
+  }
+  footer h6 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  footer ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  footer a {
+    text-decoration: none;
+    color: #bbb;
+    transition: color 0.3s ease;
+  }
+  
+  footer a:hover {
+    color: #fff;
+  }
+  
+  footer .fab {
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  footer .fab:hover {
+    color: #ccc;
+  }
+  
+  .brand-logo {
+    font-family: 'Playfair Display', serif;
+    font-size:70px;
+  }
+  
+  hr {
+    border-color: #333;
+  }
+  

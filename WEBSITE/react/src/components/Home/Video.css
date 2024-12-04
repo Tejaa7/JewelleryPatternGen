@@ -24,3 +24,8 @@
     padding: 30px;
     border-radius: 10px;
 }
+
+.upbtn:hover{
+    background-color: #191919;
+    color: white;
+}

@@ -1,0 +1,24 @@
+.main {
+    margin-top: 0px;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.contact-form {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
