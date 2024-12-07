@@ -1,8 +1,24 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../Home/Bhnvb.module.css';
 
 export const Brandheader = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Check if the user is logged in (e.g., check for a token in cookies/local storage)
+        const token = document.cookie.split('; ').find(row => row.startsWith('jwt='));
+        setIsLoggedIn(!!token); // Set login state based on token presence
+    }, []);
+
+    const handleLogout = () => {
+        // Clear the session (e.g., remove token from cookies)
+        document.cookie = 'jwt=; Max-Age=0; path=/;'; // Clear the cookie
+        setIsLoggedIn(false); // Update login state
+        navigate('/login'); // Redirect to login page
+    };
+
     useEffect(() => {
         const handleScroll = () => {
             const navbar = document.querySelector(`.${styles.navbar}`);
@@ -76,7 +92,17 @@ export const Brandheader = () => {
                                 <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/aboutus">About Us</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/login">Login</Link>
+                                {isLoggedIn ? (
+                                    <button
+                                        className={`btn nav-link fw-bold fs-5 ${styles.navLink}`}
+                                        onClick={handleLogout}
+                                        style={{ background: 'none', border: 'none' }}
+                                    >
+                                        Logout
+                                    </button>
+                                ) : (
+                                    <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/login">Login</Link>
+                                )}
                             </li>
                         </ul>
                     </div>
