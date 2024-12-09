@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function UploadContainer({ onImageUpload }) {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -12,9 +12,16 @@ function UploadContainer({ onImageUpload }) {
       // Convert the image file to Base64
       reader.onload = (e) => {
         const base64String = e.target.result;
-        setUploadedImage(base64String); // Save the Base64 string for preview
-        setImageUploaded(true); // Set upload status to true
-        onImageUpload(base64String); // Pass the Base64 string to the parent
+
+        // Extract Base64 content and ensure it's valid
+        if (base64String.includes("base64,")) {
+          const extractedBase64 = base64String.split("base64,")[1]; // Strip the data URL prefix
+          setUploadedImage(base64String); // Save full data URL for preview
+          setImageUploaded(true); // Set upload status to true
+          onImageUpload(extractedBase64); // Pass the Base64 string to the parent
+        } else {
+          alert("Invalid Base64 format. Please upload a valid image.");
+        }
       };
 
       reader.readAsDataURL(file); // Read the file as a Base64 data URL
@@ -24,18 +31,18 @@ function UploadContainer({ onImageUpload }) {
   return (
     <div
       className="upload-container text-white p-4"
-      style={{ backgroundColor: '#02080c', borderRadius: '20px' }}
+      style={{ backgroundColor: "#02080c", borderRadius: "20px" }}
     >
       <h3 className="text-center mb-3">Upload Your Sketch</h3>
 
       <div
         className="upload-area text-center mb-3"
-        onClick={() => document.getElementById('fileInput').click()}
+        onClick={() => document.getElementById("fileInput").click()}
         style={{
-          cursor: 'pointer',
-          border: '2px dashed #ccc',
-          padding: '20px',
-          borderRadius: '10px',
+          cursor: "pointer",
+          border: "2px dashed #ccc",
+          padding: "20px",
+          borderRadius: "10px",
         }}
       >
         {uploadedImage ? (
@@ -43,10 +50,10 @@ function UploadContainer({ onImageUpload }) {
             src={uploadedImage}
             alt="Uploaded Preview"
             style={{
-              maxWidth: '100%',
-              maxHeight: '200px',
-              objectFit: 'cover',
-              marginBottom: '10px',
+              maxWidth: "100%",
+              maxHeight: "200px",
+              objectFit: "cover",
+              marginBottom: "10px",
             }}
           />
         ) : (
@@ -56,7 +63,7 @@ function UploadContainer({ onImageUpload }) {
           type="file"
           id="fileInput"
           accept="image/*"
-          style={{ display: 'none' }}
+          style={{ display: "none" }}
           onChange={handleImageUpload}
         />
       </div>
@@ -81,13 +88,13 @@ function YourGenerations({ generatedImages }) {
               key={index}
               className="p-2"
               onClick={() => setSelectedImage(src)}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
             >
               <img
                 src={src}
                 alt={`Generated ${index + 1}`}
                 className="img-thumbnail"
-                style={{ width: '150px', height: '150px', objectFit: 'cover' }}
+                style={{ width: "150px", height: "150px", objectFit: "cover" }}
               />
             </div>
           ))
@@ -101,22 +108,22 @@ function YourGenerations({ generatedImages }) {
           className="popup-overlay"
           onClick={() => setSelectedImage(null)}
           style={{
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             left: 0,
-            width: '100%',
-            height: '100%',
-            background: 'rgba(0, 0, 0, 0.8)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+            width: "100%",
+            height: "100%",
+            background: "rgba(0, 0, 0, 0.8)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
             zIndex: 1000,
           }}
         >
           <img
             src={selectedImage}
             alt="Large Preview"
-            style={{ maxWidth: '90%', maxHeight: '90%' }}
+            style={{ maxWidth: "90%", maxHeight: "90%" }}
           />
         </div>
       )}
@@ -131,18 +138,21 @@ function SketchToImageSection() {
 
   const handleGenerateClick = async () => {
     if (!uploadedImageBase64) {
-      alert('Please upload an image first.');
+      alert("Please upload an image first.");
       return;
     }
 
     setLoading(true);
 
     try {
-      const response = await fetch('https://4ff0-35-196-102-93.ngrok-free.app/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ image: uploadedImageBase64 }),
-      });
+      const response = await fetch(
+        "https://9343-34-46-138-87.ngrok-free.app/generate",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ image: uploadedImageBase64 }), // Send Base64 content
+        }
+      );
 
       const data = await response.json();
       if (data.success) {
@@ -151,10 +161,10 @@ function SketchToImageSection() {
           `data:image/jpeg;base64,${data.generated_image}`,
         ]);
       } else {
-        alert('Failed to generate image: ' + data.message);
+        alert("Failed to generate image: " + data.message);
       }
     } catch (error) {
-      alert('Error connecting to the server: ' + error.message);
+      alert("Error connecting to the server: " + error.message);
     } finally {
       setLoading(false);
     }
@@ -162,20 +172,21 @@ function SketchToImageSection() {
 
   return (
     <div className="row mt-4 sketch">
-      <div className="col-lg-5 col-md-12" style={{ padding: '0 0 0 60px' }}>
+      <div className="col-lg-5 col-md-12" style={{ padding: "0 0 0 60px" }}>
         <UploadContainer onImageUpload={setUploadedImageBase64} />
       </div>
-      <div className="col-lg-7 col-md-12" style={{ padding: '0 60px 0 0' }}>
+      <div className="col-lg-7 col-md-12" style={{ padding: "0 60px 0 0" }}>
         <div
           className="MuiCardContent-root bg-black text-white p-4"
-          style={{ borderRadius: '20px' }}
+          style={{ borderRadius: "20px" }}
         >
           <div className="d-flex justify-content-between align-items-center">
             <h3>Sketch To Image</h3>
             <button className="btn btn-outline-light btn-sm">Feedback</button>
           </div>
           <p className="mt-2">
-            Upload any sketch – be it a budding artwork, interior design concept, or a product idea – and watch as our AI swiftly renders it into a detailed, realistic image.
+            Upload any sketch – be it a budding artwork, interior design concept, or a product idea
+            – and watch as our AI swiftly renders it into a detailed, realistic image.
           </p>
           <div className="text-center mt-3">
             <button
@@ -183,7 +194,7 @@ function SketchToImageSection() {
               onClick={handleGenerateClick}
               disabled={loading}
             >
-              {loading ? 'Generating...' : 'Generate'}
+              {loading ? "Generating..." : "Generate"}
             </button>
           </div>
           <YourGenerations generatedImages={generatedImages} />
