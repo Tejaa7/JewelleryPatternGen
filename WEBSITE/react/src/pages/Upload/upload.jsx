@@ -16,7 +16,6 @@ export const Upload = () => {
                 heading="Paper to Perfection"
             />
             <SketchToImage />
-            <Footer />
         </section>
 );
 };

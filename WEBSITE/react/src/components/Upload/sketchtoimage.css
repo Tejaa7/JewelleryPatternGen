@@ -8,6 +8,9 @@ body {
 
 .MuiCardContent-root {
   background-color: #000000;
+  position: absolute;
+  left: 450px; /* Adjust based on your layout */
+  top: 752px;
   padding: 24px;
   border-radius: 12px;
   color: white;

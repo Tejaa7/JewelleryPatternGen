@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 
 function UploadContainer({ onImageUpload }) {
-  const [extraExamplesVisible, setExtraExamplesVisible] = useState(false);
-  const [uploadedImage, setUploadedImage] = useState(null); // State to store uploaded image
-  const [imageUploaded, setImageUploaded] = useState(false); // State to indicate upload status
-
-  const handleToggleExamples = () => {
-    setExtraExamplesVisible(!extraExamplesVisible);
-  };
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const [imageUploaded, setImageUploaded] = useState(false);
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -16,11 +11,10 @@ function UploadContainer({ onImageUpload }) {
 
       // Convert the image file to Base64
       reader.onload = (e) => {
-        const base64StringWithPrefix = e.target.result;
-        const base64String = base64StringWithPrefix.split(',')[1]; // Strip the prefix
-        setUploadedImage(base64StringWithPrefix); // Save the full Base64 string for preview
+        const base64String = e.target.result;
+        setUploadedImage(base64String); // Save the Base64 string for preview
         setImageUploaded(true); // Set upload status to true
-        onImageUpload(base64String); // Pass the stripped Base64 string to the parent
+        onImageUpload(base64String); // Pass the Base64 string to the parent
       };
 
       reader.readAsDataURL(file); // Read the file as a Base64 data URL
@@ -32,25 +26,31 @@ function UploadContainer({ onImageUpload }) {
       className="upload-container text-white p-4"
       style={{ backgroundColor: '#02080c', borderRadius: '20px' }}
     >
-      <div className="upload-title h3 text-center mb-3">Upload Your Sketch</div>
+      <h3 className="text-center mb-3">Upload Your Sketch</h3>
 
-      {/* Upload Area */}
       <div
         className="upload-area text-center mb-3"
         onClick={() => document.getElementById('fileInput').click()}
-        style={{ cursor: 'pointer', border: '2px dashed #ccc', padding: '20px', borderRadius: '10px' }}
+        style={{
+          cursor: 'pointer',
+          border: '2px dashed #ccc',
+          padding: '20px',
+          borderRadius: '10px',
+        }}
       >
         {uploadedImage ? (
           <img
-            src={uploadedImage} // Use the full Base64 string with prefix
+            src={uploadedImage}
             alt="Uploaded Preview"
-            style={{ maxWidth: '100%', maxHeight: '200px', objectFit: 'cover', marginBottom: '10px' }}
+            style={{
+              maxWidth: '100%',
+              maxHeight: '200px',
+              objectFit: 'cover',
+              marginBottom: '10px',
+            }}
           />
         ) : (
-          <>
-            <img src="upload.png" alt="Upload Icon" className="mb-2" />
-            <p>Click or drop an image to upload</p>
-          </>
+          <p>Click to upload your sketch</p>
         )}
         <input
           type="file"
@@ -61,25 +61,28 @@ function UploadContainer({ onImageUpload }) {
         />
       </div>
 
-      {/* Feedback Message */}
       {imageUploaded && (
-        <div className="text-success text-center mb-3">Image uploaded successfully!</div>
+        <div className="text-success text-center">Image uploaded successfully!</div>
       )}
-
-      {/* Example Container */}
-      {/* ... (If you have example images, ensure they are handled similarly) */}
     </div>
   );
 }
 
 function YourGenerations({ generatedImages }) {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <div className="generations-section mt-5">
       <h3 className="text-white">Your Generations</h3>
       <div className="d-flex flex-wrap justify-content-start mt-3">
         {generatedImages.length > 0 ? (
           generatedImages.map((src, index) => (
-            <div key={index} className="p-2">
+            <div
+              key={index}
+              className="p-2"
+              onClick={() => setSelectedImage(src)}
+              style={{ cursor: 'pointer' }}
+            >
               <img
                 src={src}
                 alt={`Generated ${index + 1}`}
@@ -92,6 +95,31 @@ function YourGenerations({ generatedImages }) {
           <p className="text-white">No images generated yet. Start creating!</p>
         )}
       </div>
+
+      {selectedImage && (
+        <div
+          className="popup-overlay"
+          onClick={() => setSelectedImage(null)}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000,
+          }}
+        >
+          <img
+            src={selectedImage}
+            alt="Large Preview"
+            style={{ maxWidth: '90%', maxHeight: '90%' }}
+          />
+        </div>
+      )}
     </div>
   );
 }
@@ -113,7 +141,7 @@ function SketchToImageSection() {
       const response = await fetch('https://4ff0-35-196-102-93.ngrok-free.app/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ image: uploadedImageBase64 }), // Pass the Base64 string without prefix
+        body: JSON.stringify({ image: uploadedImageBase64 }),
       });
 
       const data = await response.json();
@@ -150,7 +178,11 @@ function SketchToImageSection() {
             Upload any sketch – be it a budding artwork, interior design concept, or a product idea – and watch as our AI swiftly renders it into a detailed, realistic image.
           </p>
           <div className="text-center mt-3">
-            <button className="btn btn-primary" onClick={handleGenerateClick} disabled={loading}>
+            <button
+              className="btn btn-primary"
+              onClick={handleGenerateClick}
+              disabled={loading}
+            >
               {loading ? 'Generating...' : 'Generate'}
             </button>
           </div>
