@@ -81,8 +81,15 @@
 
 .navJustify2 {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  width: 100%;
 }
+
+.navbar-nav {
+  flex-grow: 1; /* Allow items to stretch and take up space */
+  justify-content: space-between; /* Distribute items evenly */
+}
+
 .brandHeader {
   pointer-events: none; /* Disables hover effects and user interactions */
   font-family: 'Times New Roman', Times, serif;

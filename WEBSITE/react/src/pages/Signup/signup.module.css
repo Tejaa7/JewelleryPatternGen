@@ -15,7 +15,9 @@
   align-items: center;
   justify-content: center;
 }
-
+.top-margin {
+  margin-top: 50px; /* Space from the top */
+}
 /* Login container */
 .login-container {
   background-color: rgba(255, 255, 255, 0.8);
@@ -123,7 +125,6 @@ input[type="email"] {
 }
 
 .imgc {
-  padding: 5rem;
-  padding-right: 130px;
-  /* padding:60 130 60 80 */
+  padding: 100px 130px 40px 80px;
+
 }

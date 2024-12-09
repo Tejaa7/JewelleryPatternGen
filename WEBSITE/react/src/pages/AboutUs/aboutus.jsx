@@ -1,5 +1,4 @@
 import React from "react";
-import "./aboutus.css";
 import Carousel from '../../components/Aboutus/Carousel'
 import Context from '../../components/Aboutus/Context'
 import Navbar from "../../components/Global/Navbar";

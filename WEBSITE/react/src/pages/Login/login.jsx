@@ -2,12 +2,14 @@ import React from 'react';
 import styles from './Login.module.css'; 
 import { Link } from 'react-router-dom';
 import Footer from "../../components/Global/Footer";
+import Navbar from "../../components/Global/Navbar";
 
 
 export const Login = () => {
   return (
     <section>
-  <div className='login-page'>
+      <Navbar />
+      <div className={`login-page ${styles['top-margin']}`}>
     <div className={`container-fluid ${styles.background}`}>
       <div className={`image-container d-none d-md-block ${styles.imgc}`}>
         <img

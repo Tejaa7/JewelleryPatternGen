@@ -1,7 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Modern from "./pages/Modern/modern";
 import Traditional from "./pages/Traditional/traditional";

@@ -17,7 +17,7 @@ const FAQSection = () => {
         <footer className="bg-dark text-white">
         <section className="faq-section py-5">
             <div className="container">
-                <h2 className="text-center mb-5 text-white">Frequently Asked Questions</h2>
+                <h2 className="text-center mb-5 text-white" style={{fontSize:'45px'}}>Frequently Asked Questions</h2>
                 <div className="accordion" id="faqAccordion">
                     {faqItems.map((item) => (
                         <FAQItem key={item.id} id={item.id} question={item.question} answer={item.answer} />

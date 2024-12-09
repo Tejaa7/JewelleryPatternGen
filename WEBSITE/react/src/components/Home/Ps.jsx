@@ -12,8 +12,8 @@ const ProblemSolutionSection = ({ title, description, videoSrc, reverse }) => {
                         </video>
                     </div>
                     <div className="col-lg-6">
-                        <h2>{title}</h2>
-                        <p>{description}</p>
+                        <h2 style={{fontSize:'45px',color:'black',padding:'0 0 5px 0'}}>{title}</h2>
+                        <p >{description}</p>
                     </div>
                 </div>
             </div>

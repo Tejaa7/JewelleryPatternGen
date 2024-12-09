@@ -2,18 +2,20 @@ import React from 'react';
 import styles from './signup.module.css';
 import { Link } from 'react-router-dom';
 import Footer from "../../components/Global/Footer";
+import Navbar from "../../components/Global/Navbar";
 
 export const Signup = () => {
   return (
     <section>
-  <div className='signup-page'>
+      <Navbar />
+      <div className={`signup-page ${styles['top-margin']}`}>
     <div className={`container-fluid ${styles.background}`}>
       <div className={`image-container d-none d-md-block ${styles.imgc}`}>
         <img
           src="/images/signup/signupcover.jpg"
           alt="Image"
           className={`img-fluid ${styles['img-fluidd']}`}
-          style={{ height: "600px", width: "450px" }}
+          style={{ height: "550px", width: "430px" }}
         />
       </div>
       <div className="col-lg-4 col-md-8 col-sm-12">
@@ -76,13 +78,13 @@ export const Signup = () => {
             <button type="submit" className={`btn w-100 ${styles['submit-btn']}`}>
               Get Started
             </button>
-            <div id={styles.option}>OR</div>
+            {/* <div id={styles.option}>OR</div> */}
           </form>
-          <div className={styles['login-back']}>
+          {/* <div className={styles['login-back']}>
             <p>
               Already have an account? <Link to="/login">Login Here</Link>
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

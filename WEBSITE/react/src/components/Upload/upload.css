@@ -1,35 +1,10 @@
-/* General Styling */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: rgb(58, 57, 57);
-  color: black;
-  font-family: Arial, sans-serif;
-}
-
-/* Navbar */
-.navbar-brand {
-  font-size: 1.5rem;
-}
-
-/* Upload Section Styling */
-.upload-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgb(58, 57, 57);
-  font-family: 'Inter', sans-serif;
-  min-height: 100vh;
-  padding: 20px;
-}
 
 .upload-container {
-  position: absolute;
-  left: 0;
-  top: 69px;
-  width: 368px;
+  position: relative;
+  /* top: 726px; */
+  width: 500px;
   background-color: #121212;
-  border-radius: 8px;
+  border-radius: 0;
   padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   color: white;
@@ -70,31 +45,25 @@ body {
   font-size: 14px;
   color: #aaa;
 }
-
-/* Separator Styling */
 .separator {
   display: flex;
   align-items: center;
   text-align: center;
   margin: 20px 0;
 }
-
 .separator::before,
 .separator::after {
   content: '';
   flex: 1;
-  border-bottom: 2px solid #484646;
+  border-bottom: 2px solid #484646; /* Change color as needed */
 }
-
 .separator::before {
-  margin-right: 10px;
+  margin-right: 10px; /* Space between line and text */
 }
-
 .separator::after {
-  margin-left: 10px;
+  margin-left: 10px; /* Space between text and line */
 }
 
-/* Example Section Styling */
 .example-container {
   margin-top: 15px;
   text-align: center;
@@ -148,11 +117,11 @@ body {
   transition: height 0.5s ease;
 }
 
-/* Slider Section */
 .slidecontainer {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  
   margin-top: 20px;
 }
 
@@ -226,67 +195,4 @@ button#generateButton {
 button#generateButton:hover {
   background-color: #0056b3;
   transform: scale(1.05);
-}
-
-/* Instructions Section */
-.Instructions {
-  margin-left: 375px;
-  margin-top: 7px;
-  width: 1000px;
-  height: 296px;
-  padding: 16px 24px 24px;
-  background-color: #000000;
-}
-
-.text-left {
-  color: whitesmoke;
-  text-align: left;
-  font-size: 32px;
-}
-
-.content-left {
-  max-width: 450px;
-  font-size: 16px;
-  color: white;
-}
-
-.feedback-btn {
-  position: relative;
-  top: 10px;
-  left: 850px;
-  font-size: 14px;
-  border-radius: 20px;
-  border: 1px solid #fff;
-  color: white;
-  background-color: transparent;
-  padding: 5px 15px;
-}
-
-.feedback-btn:hover {
-  background-color: #444;
-  color: white;
-}
-
-/* Generated Images Section */
-.Generated-Images {
-  margin-left: 375px;
-}
-
-.Generated-Images h3 {
-  color: whitesmoke;
-  font-size: 24px;
-}
-
-.generated-image-container img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border: 1px solid #333;
-  border-radius: 8px;
-  transition: transform 0.2s ease;
-  cursor: pointer;
-}
-
-.generated-image-container img:hover {
-  transform: scale(1.1);
 }
