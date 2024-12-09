@@ -1,0 +1,154 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #02080c;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+}
+
+.MuiCardContent-root {
+  background-color: #000000;
+  padding: 24px;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.upload-section {
+  background-color: #111111;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.img-thumbnail {
+  max-width: 100px;
+  height: auto;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  margin-right: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-thumbnail:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+}
+
+.examples img:last-child {
+  margin-right: 0;
+}
+
+.embed-responsive {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.embed-responsive-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.embed-responsive-16by9 {
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: #1c1c1c;
+  border-radius: 12px;
+  padding: 20px;
+  width: 400px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+}
+
+.popup h4 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.emoji-options span {
+  font-size: 28px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.emoji-options span:hover {
+  transform: scale(1.2);
+  color: #00acee; /* Twitter blue for feedback hover */
+}
+
+.feedback-textarea {
+  width: 100%;
+  height: 120px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid #555;
+  padding: 12px;
+  background: #2a2a2a;
+  color: #fff;
+  font-size: 16px;
+  resize: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.feedback-textarea:focus {
+  background-color: #333;
+  border-color: #00acee;
+  outline: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00acee;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #008ccf;
+  transform: translateY(-2px);
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close-btn:hover {
+  color: white;
+  transform: rotate(90deg);
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Image Viewer</title>
+</head>
+<body>
+    <h1>Generated Image</h1>
+    <form id="upload-form">
+        <input type="file" id="input-image" accept="image/*" required>
+        <textarea id="prompt" placeholder="Enter your prompt" required></textarea>
+        <button type="submit">Generate Image</button>
+    </form>
+    <div id="result">
+        <img id="generated-image" style="max-width: 100%; display: none;">
+    </div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const inputImage = document.getElementById('input-image').files[0];
+            const prompt = document.getElementById('prompt').value;
+
+            const formData = new FormData();
+            formData.append('input_image', inputImage);
+            formData.append('prompt', prompt);
+
+            const response = await fetch('https://cdca-34-125-183-239.ngrok-free.app/generate_image', { // Replace <NGROK_PUBLIC_URL>
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                const imgElement = document.getElementById('generated-image');
+                imgElement.src = `data:image/jpeg;base64,${data.image_base64}`;
+                imgElement.style.display = 'block';
+            } else {
+                alert(`Error: ${data.message}`);
+            }
+        });
+    </script>
+</body>
+</html>
