@@ -4,6 +4,7 @@ import VideoSection from "../../components/Global/Videosection"
 import Navbar from "../../components/Global/Navbar"
 import './trad.css';
 import Footer from "../../components/Global/Footer";
+import Gallerytra from "../../components/Galleries/Gallerytra";
 
 export const Traditional = () => {
     return (
@@ -12,7 +13,7 @@ export const Traditional = () => {
             <VideoSection
                  videoSrc="/videos/traditionalvideo.mov"
                  heading="Traditional Gallery"/>
-            <Gallery />
+            <Gallerytra />
             <Footer />
         </section>
     );
