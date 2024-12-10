@@ -20,7 +20,7 @@ const Footer = () => {
 
           {/* Section 2: Membership */}
           <div className="col-md-3">
-            <h6 className="fw-bold mb-3">Membership</h6>
+            <h6 className="fw-bold mb-3">Navigation</h6>
             <ul className="list-unstyled">
               <li><a href="/traditional" className="text-white">Traditional</a></li>
               <li><a href="/modern" className="text-white">Modern</a></li>
@@ -29,6 +29,7 @@ const Footer = () => {
               <li><a href="/aboutus" className="text-white">About Us</a></li>
               <li><a href="/Login" className="text-white">Login</a></li>
               <li><a href="/Signup" className="text-white">SignUp</a></li>
+              <li><a href="/forgot" className="text-white">Forgot Password</a></li>
             </ul>
           </div>
 

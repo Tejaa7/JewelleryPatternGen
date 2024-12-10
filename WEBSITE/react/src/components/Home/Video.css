@@ -29,3 +29,9 @@
     background-color: #191919;
     color: white;
 }
+
+.upbtn{
+    font-family: 'Poppins', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap');

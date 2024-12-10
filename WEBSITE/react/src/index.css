@@ -1,5 +1,4 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -44,7 +43,7 @@ button:hover {
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto;
 }
 @font-face {
   font-family: 'Cormorant SC';
@@ -52,6 +51,7 @@ button:focus-visible {
   font-weight: 500;
   font-style: normal;
 }
-.brand-header{
-  font-family: "Cormorant-SC",serif;
+
+input:focus{
+  outline: 'none'!important;
 }

@@ -5,8 +5,8 @@ import "./comparision.css";
 const ImageSlider = () => {
   const images = [
     {
-      before: "/images/home/inputimg.png",
-      after: "/images/home/outputimg.png",
+      before: "/images/home/input.png",
+      after: "/images/home/output.png",
     },
   ];
 

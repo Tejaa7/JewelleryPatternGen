@@ -4,11 +4,10 @@ import Footer from "../../components/Global/Footer";
 import Navbar from "../../components/Global/Navbar";
 import styles from './Login.module.css';
 
-
 const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [errorMessage, setErrorMessage] = useState('');
-  const navigate = useNavigate(); // React Router's navigate function
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +16,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage(''); // Clear previous errors
+    setErrorMessage('');
 
     try {
       const response = await fetch('http://localhost:3000/login', {
@@ -25,14 +24,14 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: new URLSearchParams(formData), // URL-encoded form data
-        credentials: 'include', // Include cookies for session management
+        body: new URLSearchParams(formData),
+        credentials: 'include',
       });
 
       const result = await response.json();
 
       if (response.ok && result.success) {
-        navigate(result.redirectTo); // Navigate to /home
+        navigate(result.redirectTo);
       } else {
         setErrorMessage(result.message || 'Login failed. Please try again.');
       }
@@ -46,21 +45,6 @@ const Login = () => {
     <section>
       <Navbar />
       <div className={`login-page ${styles['top-margin']}`}>
-    <div className={`container-fluid ${styles.background}`}>
-      <div className={`image-container d-none d-md-block ${styles.imgc}`}>
-        <img
-          className={`img-fluid ${styles['img-fluiddd']}`}
-          src="/images/login/login.avif"
-          alt="Image"
-          style={{ height: "500px", width: "400px" }}
-        />
-      </div>
-      <div className="col-lg-4 col-md-8 col-sm-12">
-       <div className={`${styles['login-container']} ${styles.loginc}`}>
-        <Link to="/Home">
-          <div className={styles.logo}>
-            
-      <div className="login-page">
         <div className={`container-fluid ${styles.background}`}>
           <div className={`image-container d-none d-md-block ${styles.imgc}`}>
             <img
