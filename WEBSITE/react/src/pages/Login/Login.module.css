@@ -1,16 +1,23 @@
 /* Global body and html styling */
 .login-page :where(body), .login-page :where(html) {
-  height: 100%;
   margin: 0;
   width: 100%;
   font-family: 'Montserrat', Arial, sans-serif;
   overflow: hidden;
 }
 
+.login-page {
+  margin-top: 150px; /* Pushes the entire login page down */
+}
+
+.top-margin {
+  margin-top: 50px; /* Space from the top */
+}
+
+
 /* Background styling */
 .background {
   background-color: white;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +39,7 @@
   background-size: cover;
   border-radius: 10px;
   background-position: center;
-  margin: 50px auto;
+  margin: 50px 0px 50px 18px;
 }
 
 /* Form group and input styling */
@@ -124,6 +131,6 @@ input[type="email"] {
 }
 
 .imgc {
-  padding: 7rem;
-  padding-right: 130px;
+  padding: 112px 130px 80px 112px;
+
 }

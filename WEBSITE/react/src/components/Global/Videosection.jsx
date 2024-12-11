@@ -12,7 +12,7 @@ export const VideoSection = ({ videoSrc, heading }) => {
                         autoPlay
                         muted
                         loop
-                        style={{ maxHeight: "100%", width: "100%", objectFit: "cover", height: "611px" }}
+                        style={{ maxHeight: "100%", width: "100%", objectFit: "cover", height: "613px" }}
                     >
                         <source src={videoSrc} type="video/mp4" />
                         Your browser does not support the video tag.

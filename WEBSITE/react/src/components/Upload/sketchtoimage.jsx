@@ -30,8 +30,8 @@ function UploadContainer({ onImageUpload }) {
 
   return (
     <div
-      className="upload-container text-white p-4"
-      style={{ backgroundColor: "#02080c", borderRadius: "20px" }}
+      className="upload-container-fluid text-white p-4"
+      style={{ backgroundColor: "black" }}
     >
       <h3 className="text-center mb-3">Upload Your Sketch</h3>
 
@@ -185,13 +185,13 @@ function SketchToImageSection() {
 
   return (
     <div className="row mt-4 sketch">
-      <div className="col-lg-5 col-md-12" style={{ padding: "0 0 0 60px" }}>
+      <div className="col-lg-4 col-md-12" style={{ padding: "0" }}>
         <UploadContainer onImageUpload={setUploadedImageBase64} />
       </div>
-      <div className="col-lg-7 col-md-12" style={{ padding: "0 60px 0 0" }}>
+      <div className="col-lg-8 col-md-12" style={{ padding: "0" }}>
         <div
-          className="MuiCardContent-root bg-black text-white p-4"
-          style={{ borderRadius: "20px" }}
+          className="MuiCardContent-root-fluid bg-black text-white p-4"
+          
         >
           <div className="d-flex justify-content-between align-items-center">
             <h3>Sketch To Image</h3>

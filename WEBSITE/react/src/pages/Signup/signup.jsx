@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import styles from './signup.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../../components/Global/Footer";
+<<<<<<< HEAD
 import Navbar from '../../components/Global/Navbar';
+=======
+import Navbar from "../../components/Global/Navbar";
+
+>>>>>>> d844627846a6213c5474937369be88881d47f040
 export const Signup = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -11,7 +16,7 @@ export const Signup = () => {
     repassword: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
-  const navigate = useNavigate(); // React Router's navigate function
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,48 +24,49 @@ export const Signup = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
-    setErrorMessage(''); // Clear previous errors
+    e.preventDefault();
+    setErrorMessage('');
 
     try {
-        const response = await fetch('http://localhost:3000/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams(formData), // Convert formData to URL-encoded string
-        });
+      const response = await fetch('http://localhost:3000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(formData),
+      });
 
-        const result = await response.json();
-        if (response.ok) {
-            if (result.success) {
-                alert(result.message); // Optional: Show success message
-                navigate('/login'); // Redirect to the login page
-            } else {
-                setErrorMessage(result.message || 'Signup failed.');
-            }
-        } else {
-            setErrorMessage(result.message || 'Signup failed.');
-        }
+      const result = await response.json();
+      if (response.ok && result.success) {
+        alert(result.message);
+        navigate('/login');
+      } else {
+        setErrorMessage(result.message || 'Signup failed.');
+      }
     } catch (error) {
-        console.error('Error during signup:', error);
-        setErrorMessage('An error occurred. Please try again later.');
+      console.error('Error during signup:', error);
+      setErrorMessage('An error occurred. Please try again later.');
     }
-};
+  };
 
   return (
     <section>
+<<<<<<< HEAD
       <Navbar/>
       <br></br>
       <br></br>
       <div className="signup-page">
+=======
+      <Navbar />
+      <div className={`signup-page ${styles['top-margin']}`}>
+>>>>>>> d844627846a6213c5474937369be88881d47f040
         <div className={`container-fluid ${styles.background}`}>
           <div className={`image-container d-none d-md-block ${styles.imgc}`}>
             <img
               src="/images/signup/signupcover.jpg"
-              alt="Image"
+              alt="Signup visual"
               className={`img-fluid ${styles['img-fluidd']}`}
-              style={{ height: "600px", width: "450px" }}
+              style={{ height: "550px", width: "430px" }}
             />
           </div>
           <div className="col-lg-4 col-md-8 col-sm-12">
@@ -136,7 +142,6 @@ export const Signup = () => {
                 <button type="submit" className={`btn w-100 ${styles['submit-btn']}`}>
                   Get Started
                 </button>
-                <div id={styles.option}>OR</div>
               </form>
               <div className={styles['login-back']}>
                 <p>

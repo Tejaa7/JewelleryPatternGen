@@ -9,7 +9,7 @@ export const Carousel = () => {
   return (
     <section className="team-members-section bg-dark text-white py-5">
       <div className="container text-center">
-        <h2 className="mb-4">Our Team</h2>
+        <h2 className="mb-4" style={{fontSize:'45px'}}>Our Team</h2>
         <Swiper
           modules={[Navigation, Pagination]}
           navigation

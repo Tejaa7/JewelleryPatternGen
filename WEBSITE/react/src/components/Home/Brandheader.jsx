@@ -96,7 +96,7 @@ const Brandheader = () => {
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
+                    <div className="collapse navbar-collapse" id="navbarNav" >
                         <ul className={`navbar-nav ms-auto ${styles.navJustify2}`}>
                             <li className="nav-item">
                                 <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/Home">

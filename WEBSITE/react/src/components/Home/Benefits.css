@@ -8,4 +8,7 @@ background-color: #f1ebe5;
 margin: 10px 0; /* Adjust this value for desired margin */
 }
 
-
+.bheading{
+    font-size: 45px;
+    color: black;
+}

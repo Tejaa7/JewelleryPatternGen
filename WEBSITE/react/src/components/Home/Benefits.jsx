@@ -5,7 +5,7 @@ const BenefitsSection = () => {
     return (
         <section className="benefits-section">
             <div className="fluid-container bc">
-                <h2 className="bg text-center mb-5 heading cormorant-sc-medium">Benefits</h2>
+                <h2 className="bg text-center mb-5 bheading cormorant-sc-medium">Benefits</h2>
                 <div className="row text-center">
                     <div className="col-md-4">
                         <i className="bi bi-search" style={{ fontSize: '4rem' }}></i>

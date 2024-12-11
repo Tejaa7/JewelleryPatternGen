@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../../components/Global/Footer";
+import Navbar from "../../components/Global/Navbar";
 import styles from './Login.module.css';
 import Navbar from '../../components/Global/Navbar';
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [errorMessage, setErrorMessage] = useState('');
-  const navigate = useNavigate(); // React Router's navigate function
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -16,7 +17,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage(''); // Clear previous errors
+    setErrorMessage('');
 
     try {
       const response = await fetch('http://localhost:3000/login', {
@@ -24,14 +25,14 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: new URLSearchParams(formData), // URL-encoded form data
-        credentials: 'include', // Include cookies for session management
+        body: new URLSearchParams(formData),
+        credentials: 'include',
       });
 
       const result = await response.json();
 
       if (response.ok && result.success) {
-        navigate(result.redirectTo); // Navigate to /home
+        navigate(result.redirectTo);
       } else {
         setErrorMessage(result.message || 'Login failed. Please try again.');
       }
@@ -45,11 +46,16 @@ const Login = () => {
 
     
     <section>
+<<<<<<< HEAD
       <Navbar/>
       <br></br>
       <br></br>
       <div className="login-page">
 
+=======
+      <Navbar />
+      <div className={`login-page ${styles['top-margin']}`}>
+>>>>>>> d844627846a6213c5474937369be88881d47f040
         <div className={`container-fluid ${styles.background}`}>
           <div className={`image-container d-none d-md-block ${styles.imgc}`}>
             <img

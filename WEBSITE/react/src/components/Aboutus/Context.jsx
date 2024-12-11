@@ -6,18 +6,17 @@ import './context.css'
 export const Context = () => {
   return(
 <div className="aboutus">
-<section className="container-fluid my-5">
+<section className="container my-5">
 <div className="row align-items-center first">
   <div className="col-md-6" style={{padding:'0'}}>
     <img
-      src="/images/aboutus/abtus1.avif"
+      src="/images/aboutus/aboutus3.avif"
       alt="Travel"
       className="img-fluid "
-      style={{width:'800px',height:'600px'}}
     />
   </div>
   <div className="col-md-6" style={{paddingLeft:'80px',paddingRight:'80px'}}>
-    <h1 className="fw-bold" style={{fontSize:'49px',fontFamily:'Times New Roman'}}>Our Story</h1>
+    <h1 className="fw-bold" style={{fontSize:'49px',color:'black'}}>Our Story</h1>
     <p className="text-muted">
     Luminaire was born out of a shared passion for combining art and technology. 
     As students at Keshav Memorial Institute of Technology (KMIT), 
@@ -31,7 +30,7 @@ export const Context = () => {
 <section className="container my-5">
 <div className="row align-items-center">
   <div className="col-md-6" style={{paddingLeft:'80px',paddingRight:'80px'}}>
-    <h2 className="fw-bold" style={{fontSize:'49px',fontFamily:'Times New Roman'}}>Our Journey</h2>
+    <h2 className="fw-bold" style={{fontSize:'49px',color:'black'}}>Our Journey</h2>
     <p className="text-muted">
     When we started, Luminaire was just an ambitious idea on paper. 
     The road wasn’t easy—there were countless nights spent coding, testing, and refining our platform. 
@@ -42,7 +41,7 @@ export const Context = () => {
   </div>
   <div className="col-md-6" style={{padding:'0'}}>
     <img
-      src="/images/aboutus/abtus1.avif"
+      src="/images/aboutus/aboutus2.avif"
       alt="Travel"
       className="img-fluid rounded"
     />
@@ -54,13 +53,13 @@ export const Context = () => {
   <div className="row align-items-center">
     <div className="col-md-6" style={{padding:'0'}}>
       <img
-        src="/images/aboutus/abtus1.avif"
+        src="/images/aboutus/aboutus1.avif"
         alt="Travel"
         className="img-fluid rounded"
       />
     </div>
     <div className="col-md-6" style={{paddingLeft:'80px',paddingRight:'80px'}}>
-      <h2 className="fw-bold" style={{fontSize:'49px',fontFamily:'Times New Roman'}}>Our Mission and Vision</h2>
+      <h2 className="fw-bold" style={{fontSize:'49px',color:'black'}}>Our Mission and Vision</h2>
       <p className="text-muted">
       Our mission is to empower jewelry designers, artisans, and entrepreneurs by providing them with accessible, cutting-edge tools to bring their ideas to life.
       We envision a future where anyone with a creative spark can seamlessly transform their jewelry concepts into reality. By continually innovating and enhancing our platform, 
