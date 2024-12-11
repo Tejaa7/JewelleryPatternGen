@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import styles from './signup.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../../components/Global/Footer";
-<<<<<<< HEAD
 import Navbar from '../../components/Global/Navbar';
-=======
-import Navbar from "../../components/Global/Navbar";
-
->>>>>>> d844627846a6213c5474937369be88881d47f040
 export const Signup = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -51,15 +46,10 @@ export const Signup = () => {
 
   return (
     <section>
-<<<<<<< HEAD
       <Navbar/>
       <br></br>
       <br></br>
       <div className="signup-page">
-=======
-      <Navbar />
-      <div className={`signup-page ${styles['top-margin']}`}>
->>>>>>> d844627846a6213c5474937369be88881d47f040
         <div className={`container-fluid ${styles.background}`}>
           <div className={`image-container d-none d-md-block ${styles.imgc}`}>
             <img

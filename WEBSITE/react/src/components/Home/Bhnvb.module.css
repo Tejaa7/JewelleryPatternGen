@@ -86,7 +86,6 @@
   width: 100%;
 }
 
-<<<<<<< HEAD
 .navbar-nav{
   flex-grow: 1;
   justify-content: space-between;
@@ -95,15 +94,5 @@
 .brandHeader {
   pointer-events: none; /* Disables hover effects and user interactions */
   font-family: 'Times New Roman', Times, serif;
-=======
-.navbar-nav {
-  flex-grow: 1; /* Allow items to stretch and take up space */
-  justify-content: space-between; /* Distribute items evenly */
-}
-
-.brandHeader {
-  pointer-events: none; 
-  
->>>>>>> d844627846a6213c5474937369be88881d47f040
 }
 

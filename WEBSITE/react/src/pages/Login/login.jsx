@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../../components/Global/Footer";
 import Navbar from "../../components/Global/Navbar";
 import styles from './Login.module.css';
-import Navbar from '../../components/Global/Navbar';
+// import Navbar from '../../components/Global/Navbar';
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -46,16 +46,11 @@ const Login = () => {
 
     
     <section>
-<<<<<<< HEAD
       <Navbar/>
       <br></br>
       <br></br>
       <div className="login-page">
 
-=======
-      <Navbar />
-      <div className={`login-page ${styles['top-margin']}`}>
->>>>>>> d844627846a6213c5474937369be88881d47f040
         <div className={`container-fluid ${styles.background}`}>
           <div className={`image-container d-none d-md-block ${styles.imgc}`}>
             <img
