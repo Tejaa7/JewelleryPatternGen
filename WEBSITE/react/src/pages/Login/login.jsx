@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../../components/Global/Footer";
 import styles from './Login.module.css';
+import Navbar from '../../components/Global/Navbar';
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -41,8 +42,14 @@ const Login = () => {
   };
 
   return (
+
+    
     <section>
+      <Navbar/>
+      <br></br>
+      <br></br>
       <div className="login-page">
+
         <div className={`container-fluid ${styles.background}`}>
           <div className={`image-container d-none d-md-block ${styles.imgc}`}>
             <img

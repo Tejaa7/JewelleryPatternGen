@@ -22,3 +22,9 @@
 .submit-btn:hover {
     background-color: #0056b3;
 }
+
+
+/* .form-control:focus {
+    border-color: #000000 !important; 
+    box-shadow: 0 0 5px rgba(254, 254, 254, 0.5) !important;
+} */

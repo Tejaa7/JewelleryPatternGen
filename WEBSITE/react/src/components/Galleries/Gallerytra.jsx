@@ -16,7 +16,7 @@ return (
             {images1.map((src, index) => (
                 <div className="blockImg" key={index}>
                     <img className="mainImg" src={src} alt={`Gallery item ${index + 1}`} />
-                    <button className="use-button w-100 mt-2">USE</button>
+                    {/* <button className="use-button w-100 mt-2">USE</button> */}
                 </div>
             ))}
         </div>

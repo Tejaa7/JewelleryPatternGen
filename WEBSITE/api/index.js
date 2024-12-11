@@ -36,18 +36,18 @@ app.use(session({
 }));
 
 
-app.get('/',(req,res)=>{
-    res.redirect("/Home")
-})
+// app.get('/',(req,res)=>{
+//     res.redirect("/Home")
+// })
 
 
 
 app.set('view engine', 'ejs');
 
-app.get('/Home', (req, res) => {
-    const loggedIn = islogged(req);
-    res.render('Home.ejs', { loggedin: loggedIn });
-});
+// // app.get('/Home', (req, res) => {
+//     const loggedIn = islogged(req);
+//     res.render('Home.ejs', { loggedin: loggedIn });
+// });
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
@@ -82,6 +82,31 @@ app.post('/login', async (req, res) => {
             success: false,
             message: 'Internal server error. Please try again later.',
         });
+    }
+});
+app.get('/api/history', async (req, res) => {
+    const token = req.cookies.jwt; // Get JWT from cookies
+
+    if (!token) {
+        return res.status(401).json({ success: false, message: "Unauthorized. No token provided." });
+    }
+
+    try {
+        // Verify the token
+        const decoded = jwt.verify(token, SECRET_TOKEN_JWT);
+
+        // Find the user by email
+        const user = await UserModel.findOne({ Email: decoded.email });
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found." });
+        }
+
+        // Return the user's generated images
+        res.status(200).json({ success: true, images: user.generatedImages || [] });
+    } catch (error) {
+        console.error("Error fetching history:", error);
+        res.status(500).json({ success: false, message: "Failed to fetch history. Please try again." });
     }
 });
 app.get('/login',(req,res)=>{
@@ -196,25 +221,21 @@ app.post('/forgot-password', async (req, res) => {
     const { email } = req.body;
 
     try {
-        // Find the user
         const user = await UserModel.findOne({ Email: email });
         if (!user) {
             return res.status(404).json({ success: false, message: "Email not found." });
         }
 
-        // Generate a reset token
         const resetToken = crypto.randomBytes(32).toString("hex");
         const hashedToken = crypto.createHash("sha256").update(resetToken).digest("hex");
-
-        // Set token and expiry in user's record
         user.resetToken = hashedToken;
-        user.resetTokenExpiry = Date.now() + 10 * 60 * 1000; // 10 minutes
+        user.resetTokenExpiry = Date.now() + 10 * 60 * 1000; 
         await user.save();
         const transporter = nodemailer.createTransport({
-            service: "Gmail", // Update for your email provider
+            service: "Gmail", 
             auth: {
-                user: "saiteja.ghankot17@gmail.com", // Replace with your email
-                pass: "aacd diqf mrip tlfk", // Replace with app-specific password
+                user: "saiteja.ghankot17@gmail.com", 
+                pass: "aacd diqf mrip tlfk",
             },
         });
 
@@ -234,7 +255,6 @@ app.post('/forgot-password', async (req, res) => {
     }
 });
 
-// Route to reset password
 app.post('/reset-password/:token', async (req, res) => {
     const { token } = req.params;
     const { password, confirmPassword } = req.body;
@@ -244,18 +264,16 @@ app.post('/reset-password/:token', async (req, res) => {
     }
 
     try {
-        // Hash the token and find the user
         const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
         const user = await UserModel.findOne({
             resetToken: hashedToken,
-            resetTokenExpiry: { $gt: Date.now() }, // Ensure token is not expired
+            resetTokenExpiry: { $gt: Date.now() },
         });
 
         if (!user) {
             return res.status(400).json({ success: false, message: "Invalid or expired token." });
         }
 
-        // Update user's password
         user.Password = await bcrypt.hash(password, 10);
         user.resetToken = undefined;
         user.resetTokenExpiry = undefined;
@@ -267,6 +285,39 @@ app.post('/reset-password/:token', async (req, res) => {
         res.status(500).json({ success: false, message: "Failed to reset password. Please try again." });
     }
 });
+app.post('/api/save-image', async (req, res) => {
+    const token = req.cookies.jwt; // Get JWT from cookies
+    const { base64Image } = req.body;
+
+    if (!token) {
+        return res.status(401).json({ success: false, message: "Unauthorized. No token provided." });
+    }
+
+    try {
+        // Verify the token
+        const decoded = jwt.verify(token, SECRET_TOKEN_JWT);
+
+        // Find the user by email
+        const user = await UserModel.findOne({ Email: decoded.email });
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found." });
+        }
+
+        // Add the Base64 image to the user's generatedImages array
+        user.generatedImages = user.generatedImages || []; // Initialize if undefined
+        user.generatedImages.push(base64Image);
+
+        // Save the updated user data
+        await user.save();
+
+        res.status(200).json({ success: true, message: "Image saved successfully!" });
+    } catch (error) {
+        console.error("Error saving image:", error);
+        return res.status(500).json({ success: false, message: "Failed to save image. Please try again." });
+    }
+});
 app.listen(3000,()=>{
     console.log("Server is running port 3000")
 })
+

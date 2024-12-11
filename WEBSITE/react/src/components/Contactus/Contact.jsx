@@ -58,7 +58,7 @@ const ContactUs = () => {
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="email" className="form-label">Email</label>
+                                    <label htmlFor="email" className="form-label" style={{outline:"none"}}>Email</label>
                                     <input
                                         type="email"
                                         className="form-control"

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './forgot.css'; 
 import { useNavigate } from 'react-router-dom';
 import Footer from "../../components/Global/Footer";
+import Navbar from '../../components/Global/Navbar';
 
 export const Forgot = () => {
   const [step, setStep] = useState('request'); // 'request' or 'reset'
@@ -59,17 +60,20 @@ export const Forgot = () => {
 
   return (
     <section> 
+      <Navbar/>
+      <br></br>
+      <br></br>
       <div className="forgot-page container-fluid" style={{ padding: '0', margin: '0', width: '100%' }}>
         <div className="row justify-content-center" style={{ backgroundColor: 'white' }}>
           <div className="col-lg-4 col-md-8 col-sm-12">
             <div className="forgot-container">
               <div className="logo">
-                <img
+                {/* <img
                   src="/logo/LOGO1.jpg"
                   alt="Logo"
                   className="img-fluid"
                   style={{ height: "100px", width: "270px", margin: '0' }}
-                />
+                /> */}
               </div>
               <h5 style={{ padding: '1rem' }}>
                 {step === 'request' ? 'Forgot Password?' : 'Reset Password'}

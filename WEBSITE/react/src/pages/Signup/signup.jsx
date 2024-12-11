@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './signup.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from "../../components/Global/Footer";
-
+import Navbar from '../../components/Global/Navbar';
 export const Signup = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -50,6 +50,9 @@ export const Signup = () => {
 
   return (
     <section>
+      <Navbar/>
+      <br></br>
+      <br></br>
       <div className="signup-page">
         <div className={`container-fluid ${styles.background}`}>
           <div className={`image-container d-none d-md-block ${styles.imgc}`}>

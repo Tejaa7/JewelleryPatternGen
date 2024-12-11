@@ -12,6 +12,7 @@ import Signup from "./pages/Signup/signup";
 import AboutUs from "./pages/AboutUs/Aboutus";
 import Homepage from "./pages/Homepage/Home";
 import Forgotps from './pages/Forgotps/Forgot';
+import History  from "./pages/History/History";
 
 
 
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/Forgot" element={<Forgotps />} />
                 <Route path="/contactus" element={<ContactUs />} />
+                <Route path="/history" element={<History/>}/>
             </Routes>
         </Router>
     );

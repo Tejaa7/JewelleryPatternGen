@@ -1,22 +1,47 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import styles from '../Home/Bhnvb.module.css';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import styles from "../Home/Bhnvb.module.css";
+import "../styles/main.css";
+import "../styles/variables.css";
 
-export const Brandheader = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
+const Brandheader = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [username, setUsername] = useState("User");
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Check if the user is logged in (e.g., check for a token in cookies/local storage)
-        const token = document.cookie.split('; ').find(row => row.startsWith('jwt='));
-        setIsLoggedIn(!!token); // Set login state based on token presence
+        const checkLoginStatus = () => {
+            const cookies = document.cookie.split("; ");
+            const jwtCookie = cookies.find((cookie) =>
+                cookie.trim().startsWith("jwt=")
+            );
+
+            if (jwtCookie) {
+                const token = jwtCookie.split("=")[1];
+
+                try {
+                    const base64Url = token.split(".")[1];
+                    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+                    const jsonPayload = JSON.parse(atob(base64));
+
+                    setUsername(jsonPayload.username);
+                    setIsLoggedIn(true);
+                } catch (error) {
+                    console.error("Error decoding JWT:", error);
+                    setIsLoggedIn(false);
+                }
+            } else {
+                setIsLoggedIn(false);
+            }
+        };
+
+        checkLoginStatus();
     }, []);
 
     const handleLogout = () => {
-        // Clear the session (e.g., remove token from cookies)
-        document.cookie = 'jwt=; Max-Age=0; path=/;'; // Clear the cookie
-        setIsLoggedIn(false); // Update login state
-        navigate('/login'); // Redirect to login page
+        document.cookie = "jwt=; Max-Age=0; path=/;";
+        setIsLoggedIn(false);
+        navigate("/login");
     };
 
     useEffect(() => {
@@ -33,8 +58,8 @@ export const Brandheader = () => {
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
@@ -44,7 +69,7 @@ export const Brandheader = () => {
                 <Link
                     className={styles.brandName}
                     to="/Home"
-                    style={{ textDecoration: 'none', fontWeight: '900' }}
+                    style={{ textDecoration: "none", fontWeight: "900" }}
                 >
                     LuminairE
                 </Link>
@@ -59,7 +84,7 @@ export const Brandheader = () => {
                                 src="/logo/LOGO1.jpg"
                                 alt="Logo"
                                 className="img-fluid"
-                                style={{ height: '100px', width: '270px' }}
+                                style={{ height: "100px", width: "270px" }}
                             />
                         </Link>
                     </div>
@@ -74,34 +99,77 @@ export const Brandheader = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className={`navbar-nav ms-auto ${styles.navJustify2}`}>
                             <li className="nav-item">
-                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/Home">Home</Link>
+                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/Home">
+                                    Home
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/traditional">Traditional</Link>
+                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/traditional">
+                                    Traditional
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/modern">Modern</Link>
+                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/modern">
+                                    Modern
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/upload">Upload</Link>
+                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/upload">
+                                    Upload
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/contactus">Contact Us</Link>
+                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/contactus">
+                                    Contact Us
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/aboutus">About Us</Link>
+                                <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/aboutus">
+                                    About Us
+                                </Link>
                             </li>
                             <li className="nav-item">
                                 {isLoggedIn ? (
-                                    <button
-                                        className={`btn nav-link fw-bold fs-5 ${styles.navLink}`}
-                                        onClick={handleLogout}
-                                        style={{ background: 'none', border: 'none' }}
-                                    >
-                                        Logout
-                                    </button>
+                                    <div className="dropdown">
+                                        <button
+                                            className={`btn nav-link dropdown-toggle fw-bold fs-5 ${styles.navLink}`}
+                                            id="accountDropdown"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                            style={{
+                                                background: "none",
+                                                border: "none",
+                                            }}
+                                        >
+                                            {username}
+                                        </button>
+                                        <ul
+                                            className="dropdown-menu dropdown-menu-end shadow"
+                                            aria-labelledby="accountDropdown"
+                                            style={{ fontFamily: "Poppins, sans-serif" }}
+                                        >
+                                            <li>
+                                                <Link
+                                                    className="dropdown-item d-flex align-items-center"
+                                                    to="/history"
+                                                >
+                                                    <i className="bi bi-clock-history me-2"></i> History
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <button
+                                                    className="dropdown-item d-flex align-items-center"
+                                                    onClick={handleLogout}
+                                                >
+                                                    <i className="bi bi-box-arrow-right me-2"></i> Logout
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 ) : (
-                                    <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/login">Login</Link>
+                                    <Link className={`nav-link fw-bold fs-5 ${styles.navLink}`} to="/login">
+                                        Login
+                                    </Link>
                                 )}
                             </li>
                         </ul>

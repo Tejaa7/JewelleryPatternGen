@@ -36,4 +36,7 @@
   max-width: 100%; /* Fit inside the parent container */
   max-height: 100%; /* Ensure height doesn't exceed parent */
 }
+.p{
+  color: white;
+}
 

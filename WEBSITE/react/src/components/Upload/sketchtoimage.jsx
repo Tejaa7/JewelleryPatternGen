@@ -51,7 +51,7 @@ function UploadContainer({ onImageUpload }) {
             alt="Uploaded Preview"
             style={{
               maxWidth: "100%",
-              maxHeight: "200px",
+              // maxHeight: "200px",
               objectFit: "cover",
               marginBottom: "10px",
             }}
@@ -138,37 +138,50 @@ function SketchToImageSection() {
 
   const handleGenerateClick = async () => {
     if (!uploadedImageBase64) {
-      alert("Please upload an image first.");
-      return;
+        alert("Please upload an image first.");
+        return;
     }
 
     setLoading(true);
 
     try {
-      const response = await fetch(
-        "https://9343-34-46-138-87.ngrok-free.app/generate",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ image: uploadedImageBase64 }), // Send Base64 content
-        }
-      );
+        const response = await fetch(
+            "https://8038-34-125-89-16.ngrok-free.app/generate",
+            {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ image: uploadedImageBase64 }), // Send Base64 content
+            }
+        );
 
-      const data = await response.json();
-      if (data.success) {
-        setGeneratedImages((prevImages) => [
-          ...prevImages,
-          `data:image/jpeg;base64,${data.generated_image}`,
-        ]);
-      } else {
-        alert("Failed to generate image: " + data.message);
-      }
+        const data = await response.json();
+        if (data.success) {
+            const generatedImage = `data:image/jpeg;base64,${data.generated_image}`;
+            setGeneratedImages((prevImages) => [...prevImages, generatedImage]);
+
+            // Save the generated image to the backend
+            await fetch("http://localhost:3000/api/save-image", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                credentials: "include", // Include cookies for JWT
+                body: JSON.stringify({
+                    base64Image: generatedImage,
+                }),
+            });
+
+            alert("Image generated and saved successfully!");
+        } else {
+            alert("Failed to generate image: " + data.message);
+        }
     } catch (error) {
-      alert("Error connecting to the server: " + error.message);
+        alert("Error connecting to the server: " + error.message);
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
+
 
   return (
     <div className="row mt-4 sketch">

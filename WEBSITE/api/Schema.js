@@ -14,6 +14,7 @@ const Schema = new Signup({
     Password: { type: String, required: true },
     resetToken: { type: String }, // Token for password reset
     resetTokenExpiry: { type: Date }, // Expiry time for the reset token
+    generatedImages: { type: [String], default: [] }, // Array to store Base64-encoded images
 });
 
 // Create the model
