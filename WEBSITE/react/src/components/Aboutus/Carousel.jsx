@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 
+
 export const Carousel = () => {
   return (
     <section className="team-members-section bg-dark text-white py-5">
@@ -26,56 +27,51 @@ export const Carousel = () => {
           <SwiperSlide>
             <div className="team-card">
               <img
-                src="https://via.placeholder.com/300"
+                src="/images/aboutus/001.jpeg"
                 alt="Team Member 1"
                 className="img-fluid rounded-circle mb-3"
               />
-              <h5>Team Member 1</h5>
-              <p>Role</p>
+              <h5>SRI SAI TEJA GHANKOT</h5>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="team-card">
               <img
-                src="https://via.placeholder.com/300"
+                src="/images/aboutus/002.jpg"
                 alt="Team Member 2"
                 className="img-fluid rounded-circle mb-3"
               />
-              <h5>Team Member 2</h5>
-              <p>Role</p>
+              <h5>TEJA VARDHAN REDDY</h5>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="team-card">
               <img
-                src="https://via.placeholder.com/300"
+                src="/images/aboutus/003.jpg"
                 alt="Team Member 3"
                 className="img-fluid rounded-circle mb-3"
               />
-              <h5>Team Member 3</h5>
-              <p>Role</p>
+              <h5>Samarpan Elipay</h5>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="team-card">
               <img
-                src="https://via.placeholder.com/300"
+                src="/images/aboutus/004.jpg"
                 alt="Team Member 3"
                 className="img-fluid rounded-circle mb-3"
               />
-              <h5>Team Member 4</h5>
-              <p>Role</p>
+              <h5>BUVESH KUMAR</h5>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="team-card">
               <img
-                src="https://via.placeholder.com/300"
+                src="/images/aboutus/005.jpg"
                 alt="Team Member 3"
                 className="img-fluid rounded-circle mb-3"
               />
-              <h5>Team Member 5</h5>
-              <p>Role</p>
+              <h5>ABBAGONI SUNIL</h5>
             </div>
           </SwiperSlide>
         </Swiper>

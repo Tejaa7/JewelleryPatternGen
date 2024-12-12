@@ -146,7 +146,7 @@ function SketchToImageSection() {
 
     try {
         const response = await fetch(
-            "https://8038-34-125-89-16.ngrok-free.app/generate",
+            "https://d987-34-74-81-152.ngrok-free.app/generate",
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
